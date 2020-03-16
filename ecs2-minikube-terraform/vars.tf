@@ -1,10 +1,10 @@
 variable "instance_ami_id" {
   type    = "string"
-  default = "ami-0cc293023f983ed53"
+  default = "ami-07ebfd5b3428b6f4d"
 }
 variable "instance_type" {
   type    = "string"
-  default = "t3.large"
+  default = "t2.medium"
 }
 
 variable "instance_tags" {
@@ -24,7 +24,7 @@ variable "instance_subnet_id" {
 
 variable "instance_key_name" {
   type    = "string"
-  default = "Trial-pair"
+  default = "fiap-chave"
 }
 
 variable "aws_profile_name" {
@@ -34,7 +34,7 @@ variable "aws_profile_name" {
 
 variable "aws_region" {
   type    = "string"
-  default = "eu-central-1"
+  default = "us-east-1"
 }
 
 variable "ec2_ingress_cidr" {
