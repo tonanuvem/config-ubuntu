@@ -35,7 +35,7 @@ source ~/.profile
 
 # Verificando as versões instaladas e atualizar permissão docker:
 cd ~
-printf "--------------------------------------------------\n"
+printf "\n\n\xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n"
 printf "\n\n\tVerificando as instações:\n\n"
 sudo docker version
 docker-compose --version
