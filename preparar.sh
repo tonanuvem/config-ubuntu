@@ -23,6 +23,12 @@ touch ~/.aws/credentials
 echo 'ClientAliveInterval 60' | sudo tee --append /etc/ssh/sshd_config
 sudo service ssh restart
 
+# Instalação do Terraform:
+wget https://releases.hashicorp.com/terraform/0.12.23/terraform_0.12.23_linux_amd64.zip
+unzip terraform_0.12.23_linux_amd64.zip
+DIR_TERRAFORM=$(pwd)
+echo "export PATH=$PATH:$DIR_TERRAFORM" >> /etc/profile
+
 # Verificando as versões instaladas e atualizar permissão docker:
 printf "--------------------------------------------------\n"
 printf "\n\n\tVerificando as instações:\n\n"
