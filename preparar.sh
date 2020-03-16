@@ -24,6 +24,7 @@ echo 'ClientAliveInterval 60' | sudo tee --append /etc/ssh/sshd_config
 sudo service ssh restart
 
 # Verificando as versões instaladas e atualizar permissão docker:
+printf "--------------------------------------------------\n"
 printf "\n\n\tVerificando as instações:\n\n"
 sudo docker version
 docker-compose --version
