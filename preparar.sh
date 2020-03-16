@@ -19,3 +19,7 @@ sudo ./aws/install
 # Criar arquivo vazio das credenciais da AWS:
 mkdir ~/.aws
 touch ~/.aws/credentials
+
+# Habilitar a configuração para o servidor não derrubar suas conexões:
+echo 'ClientAliveInterval 60' | sudo tee --append /etc/ssh/sshd_config
+sudo service ssh restart
