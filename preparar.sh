@@ -28,6 +28,7 @@ wget https://releases.hashicorp.com/terraform/0.12.23/terraform_0.12.23_linux_am
 unzip terraform_0.12.23_linux_amd64.zip
 DIR_TERRAFORM=$(pwd)
 echo "export PATH=$PATH:$DIR_TERRAFORM" >> ~/.profile
+source ~/.profile
 
 # Verificando as versões instaladas e atualizar permissão docker:
 printf "--------------------------------------------------\n"
@@ -35,4 +36,5 @@ printf "\n\n\tVerificando as instações:\n\n"
 sudo docker version
 docker-compose --version
 aws --version
+terraform --version
 newgrp docker
