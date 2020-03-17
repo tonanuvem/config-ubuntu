@@ -137,12 +137,12 @@ resource "aws_instance" "web" {
 
   instance_type = "t2.medium"
 
-  # Criar um disco com 30 GB
+  /* # Criar um disco com 30 GB
   ebs_block_device {
     size = 30
     type = "gp2"
     device_name = "/dev/xvda"
-  }
+  } */
   
   # Lookup the correct AMI based on the region
   # we specified
