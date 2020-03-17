@@ -5,23 +5,23 @@ Scripts para preparar a VM Ubuntu para rodar os LABS no Educate.
 O pacote de cloud-init configura aspectos específicos de uma nova instância.
 
 1) Preparação:
-<br> > nano ~/.aws/credentials
-<br> > inserir credenciais
-<br> > executar o comando em sua maquina local: ssh-keygen -y -f ./chave-fiap.pem > public_key.pem
+> nano ~/.aws/credentials <br>
+> inserir credenciais <br>
+> executar o comando em sua maquina local: ssh-keygen -y -f ./chave-fiap.pem > public_key.pem <br>
 
-<br> > git clone
-<br> > pegar o conteudo do arquivo e inserir no public_key.pem.
+> git clone  <br>
+> pegar o conteudo do arquivo e inserir no public_key.pem.  <br>
 
 2) Execução
-<br> > cd ec2-instance
-<br> > terraform init
-<br> > terraform plan
-<br> > terraform apply
+> cd ec2-instance  <br>
+> terraform init  <br>
+> terraform plan  <br>
+> terraform apply  <br>
 
 3) Conectar 
-<br> > ssh
-<br> > cat /var/log/cloud-init-output.log > script_init.log
-
+> ssh <br>
+> cat /var/log/cloud-init-output.log > script_init.log <br>
+<br>
 O arquivo de log de saída de cloud-init (/var/log/cloud-init-output.log) captura a saída do console para facilitar a depuração de seus scripts após uma execução se a instância não se comportar da maneira desejada.
 
 Quando um script de dados do usuário é processado, ele é copiado para /var/lib/cloud/instances/instance-id/ e executado a partir desse diretório.
