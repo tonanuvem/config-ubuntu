@@ -11,7 +11,7 @@ variable "key_name" {
 }
 
 variable "aws_region" {
-  description = "Região do AWS Educate padrão."
+  description = "Regiao do AWS Educate padrao."
   default     = "us-east-1"
 }
 
