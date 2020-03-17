@@ -2,7 +2,7 @@
 
 # --- DEV TOOLS
 # Instalacão do Java:
-sudo apt update
+sudo apt update -y
 sudo apt install default-jre
 sudo apt install default-jdk
 sudo update-alternatives --config java
