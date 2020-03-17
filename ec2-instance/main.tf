@@ -136,7 +136,7 @@ resource "aws_instance" "web" {
     # The connection will use the local SSH agent for authentication.
   }
 
-  tags {
+  tags = {
     Name = "maquina ec2"
   }  
   
