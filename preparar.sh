@@ -2,6 +2,7 @@
 
 # --- DEV TOOLS
 # Instalacão do Java:
+export DEBIAN_FRONTEND=noninteractive
 sudo apt-get update -y
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tJava:\n\n"
