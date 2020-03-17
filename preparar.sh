@@ -8,6 +8,7 @@ printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tJava:\n\n"
 sudo apt-get install -y default-jre
 sudo apt-get install -y default-jdk
+sudo apt-get install -y maven
 sudo update-alternatives --config java
 sudo update-alternatives --config javac
 # adiciona as variaveis do java em /etc/environment
@@ -75,6 +76,7 @@ printf "\n\n\tVerificando as instações:\n\n"
 printf "\n\n\tDEV TOOLS:\n\n"
 java -version
 javac -version
+mvn -version
 python3 --version
 pip3 --version
 printf "\n\n\tOPS TOOLS:\n\n"
