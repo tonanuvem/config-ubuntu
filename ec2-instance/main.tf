@@ -136,12 +136,16 @@ resource "aws_instance" "web" {
     # The connection will use the local SSH agent for authentication.
   }
 
+  tags {
+    Name = "maquina ec2"
+  }  
+  
   instance_type = "t2.medium"
 
   /* # Criar um disco com 30 GB
   ebs_block_device {
-    size = 30
-    type = "gp2"
+    volume_size = 30
+    volume_type = "gp2"
     device_name = "/dev/xvda"
   } */
   
