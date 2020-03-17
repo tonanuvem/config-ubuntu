@@ -1,39 +1,39 @@
-# Specify the provider and access details
+# Define o provedor AWS onde serão criados os recursos
 provider "aws" {
   region = "${var.aws_region}"
 }
 
-# Create a VPC to launch our instances into
+# Cria um VPC que receberá as instâncias e recursos
 resource "aws_vpc" "default" {
   cidr_block = "10.0.0.0/16"
 }
 
-# Create an internet gateway to give our subnet access to the outside world
+# Cria um Internet Gateway que possibilita a comunicação do VPN com o mundo externo
 resource "aws_internet_gateway" "default" {
   vpc_id = "${aws_vpc.default.id}"
 }
 
-# Grant the VPC internet access on its main route table
+# Cria a Regra que permite acesso a Internet de/para o VPC
 resource "aws_route" "internet_access" {
   route_table_id         = "${aws_vpc.default.main_route_table_id}"
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = "${aws_internet_gateway.default.id}"
 }
 
-# Create a subnet to launch our instances into
+# Cria uma subrede no VPC que ira receber as instâncias
 resource "aws_subnet" "default" {
   vpc_id                  = "${aws_vpc.default.id}"
   cidr_block              = "10.0.1.0/24"
   map_public_ip_on_launch = true
 }
 
-# A security group for the ELB so it is accessible via the web
+# Cria um "security group" para o ELB para permitir o acesso Web
 resource "aws_security_group" "elb" {
-  name        = "terraform_example_elb"
-  description = "Used in the terraform"
+  name        = "fiap-elb-security-group-ec2-instance"
+  description = "Grupo de seguranca do ELB"
   vpc_id      = "${aws_vpc.default.id}"
 
-  # HTTP access from anywhere
+  # Acesso HTTP de qualquer um
   ingress {
     from_port   = 80
     to_port     = 80
@@ -41,7 +41,7 @@ resource "aws_security_group" "elb" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # outbound internet access
+  # Acesso de saida para internet
   egress {
     from_port   = 0
     to_port     = 0
@@ -50,14 +50,15 @@ resource "aws_security_group" "elb" {
   }
 }
 
+# Cria um "security group" para o EC2 para permitir o acesso Web
 # Our default security group to access
 # the instances over SSH and HTTP
 resource "aws_security_group" "default" {
-  name        = "terraform_example"
-  description = "Used in the terraform"
+  name        = "fiap-ec2-security-group-ec2-instance"
+  description = "Grupo de segurança do EC2"
   vpc_id      = "${aws_vpc.default.id}"
 
-  # SSH access from anywhere
+  # Acesso SSH de qualquer um
   ingress {
     from_port   = 22
     to_port     = 22
@@ -65,7 +66,7 @@ resource "aws_security_group" "default" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # HTTP access from the VPC
+  # Acesso HTTP a partir do VPC
   ingress {
     from_port   = 80
     to_port     = 80
@@ -73,7 +74,15 @@ resource "aws_security_group" "default" {
     cidr_blocks = ["10.0.0.0/16"]
   }
 
-  # outbound internet access
+  # Acesso TOTAL de qualquer um
+  ingress {
+    from_port   = 0
+    to_port     = 65353
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  
+  # Acesso de saida para internet
   egress {
     from_port   = 0
     to_port     = 0
