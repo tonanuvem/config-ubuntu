@@ -24,7 +24,7 @@ printf "\n\n\tPython:\n\n"
 sudo add-apt-repository universe
 sudo apt-get install -y python3-pip
 sudo apt-get install -y python3-venv
-
+pip3 install --upgrade pip
 
 # --- OPS TOOLS
 # Instalação do Docker
