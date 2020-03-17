@@ -19,7 +19,7 @@ source /etc/environment
 # Instalação do Python:
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tPython:\n\n"
-sudo add-apt-repository universe
+# sudo add-apt-repository universe
 sudo apt-get install -y python3-pip
 sudo apt-get install -y python3-venv
 
