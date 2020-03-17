@@ -126,6 +126,10 @@ resource "aws_volume_attachment" "vol1" {
     device_name = "/dev/xvdb"
 }
 
+data "template_file" "init" {
+  template = "${file("${path.module}/../preparar.sh")}"
+}
+
 resource "aws_instance" "web" {
   # The connection block tells our provisioner how to
   # communicate with the resource (instance)
@@ -135,28 +139,36 @@ resource "aws_instance" "web" {
     host = "${self.public_ip}"
     # The connection will use the local SSH agent for authentication.
   }
-
+  
+  # Define o script de inicialização do EC2:
+  user_data = "${data.template_file.init.rendered}"
+  
+  # Define o nome da VM
   tags = {
-    Name = "fiap maquina ec2"
+    Name = "fiap vm : ec2-instance"
   }  
   
-  instance_type = "t2.medium"
+  # Define tipo da VM (CPU e Memoria)
+  instance_type = "${var.instance_type}"
 
-  /* # Criar um disco com 30 GB
+  # Criar um disco com 32 GB
   ebs_block_device {
-    volume_size = 30
+    volume_size = 32
     volume_type = "gp2"
     device_name = "/dev/xvda"
-  } */
+  }
+  # Criar um disco com 30 GB
+  root_block_device {
+    volume_size = 30
+  }
   
-  # Lookup the correct AMI based on the region
-  # we specified
+  # Versão do Sistema Operacional (Ubuntu)
   ami = "${lookup(var.aws_amis, var.aws_region)}"
 
-  # The name of our SSH keypair we created above.
+  # Chave: SSH keypair
   key_name = "${aws_key_pair.auth.id}"
 
-  # Our Security group to allow HTTP and SSH access
+  # Security group to allow HTTP and SSH access
   vpc_security_group_ids = ["${aws_security_group.default.id}"]
 
   # We're going to launch into the same subnet as our ELB. In a production
