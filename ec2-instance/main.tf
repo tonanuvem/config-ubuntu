@@ -7,47 +7,21 @@ provider "aws" {
 resource "aws_vpc" "default" {
   cidr_block = "10.0.0.0/16"
 }
-
 # Cria um Internet Gateway que possibilita a comunicação do VPN com o mundo externo
 resource "aws_internet_gateway" "default" {
   vpc_id = "${aws_vpc.default.id}"
 }
-
 # Cria a Regra que permite acesso a Internet de/para o VPC
 resource "aws_route" "internet_access" {
   route_table_id         = "${aws_vpc.default.main_route_table_id}"
   destination_cidr_block = "0.0.0.0/0"
   gateway_id             = "${aws_internet_gateway.default.id}"
 }
-
 # Cria uma subrede no VPC que ira receber as instâncias
 resource "aws_subnet" "default" {
   vpc_id                  = "${aws_vpc.default.id}"
   cidr_block              = "10.0.1.0/24"
   map_public_ip_on_launch = true
-}
-
-# Cria um "security group" para o ELB para permitir o acesso Web
-resource "aws_security_group" "elb" {
-  name        = "fiap-elb-security-group-ec2-instance"
-  description = "Grupo de seguranca do ELB"
-  vpc_id      = "${aws_vpc.default.id}"
-
-  # Acesso HTTP de qualquer um
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  # Acesso de saida para internet
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
 }
 
 # Cria um "security group" para o EC2 visando permitir o acesso Web
@@ -86,23 +60,6 @@ resource "aws_security_group" "default" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
-  }
-}
-
-# Cria um Elastic Load Balancer fazer o balanceamento nas instâncias EC2 visando permitir o acesso Web
-# Regra do Load Balancer: acesso a porta 80
-resource "aws_elb" "web" {
-  name = "fiap-elb-ec2-instance"
-
-  subnets         = ["${aws_subnet.default.id}"]
-  security_groups = ["${aws_security_group.elb.id}"]
-  instances       = ["${aws_instance.web.id}"]
-
-  listener {
-    instance_port     = 80
-    instance_protocol = "http"
-    lb_port           = 80
-    lb_protocol       = "http"
   }
 }
 
@@ -188,5 +145,48 @@ resource "aws_instance" "web" {
     ]
   }
   */
-    
+
+# uso futuro: ELB
+/*
+# Cria um "security group" para o ELB para permitir o acesso Web
+resource "aws_security_group" "elb" {
+  name        = "fiap-elb-security-group-ec2-instance"
+  description = "Grupo de seguranca do ELB"
+  vpc_id      = "${aws_vpc.default.id}"
+
+  # Acesso HTTP de qualquer um
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # Acesso de saida para internet
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+  
+# Cria um Elastic Load Balancer fazer o balanceamento nas instâncias EC2 visando permitir o acesso Web
+# Regra do Load Balancer: acesso a porta 80
+resource "aws_elb" "web" {
+  name = "fiap-elb-ec2-instance"
+
+  subnets         = ["${aws_subnet.default.id}"]
+  security_groups = ["${aws_security_group.elb.id}"]
+  instances       = ["${aws_instance.web.id}"]
+
+  listener {
+    instance_port     = 80
+    instance_protocol = "http"
+    lb_port           = 80
+    lb_protocol       = "http"
+  }
+}
+*/
+  
 }
