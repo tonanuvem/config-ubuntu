@@ -32,7 +32,8 @@ printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tDocker:\n\n"
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
-sudo gpasswd -a $USER docker
+# sudo gpasswd -a $USER docker
+sudo gpasswd -a ubuntu docker
 
 # Instalar o docker-compose
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
