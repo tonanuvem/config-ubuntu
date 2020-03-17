@@ -18,6 +18,10 @@ O pacote de cloud-init configura aspectos específicos de uma nova instância.
 > terraform plan
 > terraform apply
 
+3) Conectar 
+> ssh
+> cat /var/log/cloud-init-output.log > script_init.log
+
 Fontes:
 
 > https://github.com/akskap/esk8s
