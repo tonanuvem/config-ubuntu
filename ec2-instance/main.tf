@@ -71,18 +71,6 @@ resource "aws_key_pair" "auth" {
   # public_key = "$(var.public_key}"
 }
 
-# Criar um disco com 35 GB
-resource "aws_ebs_volume" "vol1" {
-    size = 35
-    type = "gp2"
-    availability_zone = "${aws_instance.web.availability_zone}"
-}
-resource "aws_volume_attachment" "vol1" {
-    instance_id = "${aws_instance.web.id}"
-    volume_id = "${aws_ebs_volume.vol1.id}"
-    device_name = "/dev/xvdb"
-}
-
 # Para verificar o resultado do script: cat /var/log/cloud-init-output.log
 data "template_file" "init" {
   template = "${file("${path.module}/../preparar.sh")}"
@@ -188,6 +176,19 @@ resource "aws_elb" "web" {
     lb_protocol       = "http"
   }
 }
+  
+# Criar um disco Extra com 35 GB
+resource "aws_ebs_volume" "vol1" {
+    size = 35
+    type = "gp2"
+    availability_zone = "${aws_instance.web.availability_zone}"
+}
+resource "aws_volume_attachment" "vol1" {
+    instance_id = "${aws_instance.web.id}"
+    volume_id = "${aws_ebs_volume.vol1.id}"
+    device_name = "/dev/xvdb"
+}
+
 */
   
 }
