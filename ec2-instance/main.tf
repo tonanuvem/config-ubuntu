@@ -97,12 +97,13 @@ resource "aws_instance" "web" {
   # Define tipo da VM (CPU e Memoria)
   instance_type = "${var.instance_type}"
 
+  /*
   # Criar um disco com 32 GB
   ebs_block_device {
     volume_size = 32
     volume_type = "gp2"
     device_name = "/dev/xvda"
-  }
+  } */
   # Criar um disco com 30 GB
   root_block_device {
     volume_size = 30
