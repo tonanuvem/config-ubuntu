@@ -83,6 +83,7 @@ resource "aws_volume_attachment" "vol1" {
     device_name = "/dev/xvdb"
 }
 
+# Para verificar o resultado do script: cat /var/log/cloud-init-output.log
 data "template_file" "init" {
   template = "${file("${path.module}/../preparar.sh")}"
 }
