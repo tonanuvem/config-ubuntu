@@ -10,10 +10,10 @@ sudo apt install -y default-jdk
 sudo update-alternatives --config java
 sudo update-alternatives --config javac
 # adiciona as variaveis do java em /etc/environment
-sudo cat >> /etc/environment <<END
+sudo cat >> /etc/environment <<EOL
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
 export JRE_HOME="/usr/lib/jvm/java-8-openjdk-amd64/jre/"
-END
+EOL
 source /etc/environment
 
 # Instalação do Python:
