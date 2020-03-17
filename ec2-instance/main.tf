@@ -137,7 +137,7 @@ resource "aws_instance" "web" {
   }
 
   tags = {
-    Name = "maquina ec2"
+    Name = "fiap maquina ec2"
   }  
   
   instance_type = "t2.medium"
