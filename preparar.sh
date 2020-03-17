@@ -2,11 +2,11 @@
 
 # --- DEV TOOLS
 # Instalacão do Java:
-sudo apt update -y
+sudo apt-get update -y
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tJava:\n\n"
-sudo apt install -y default-jre
-sudo apt install -y default-jdk
+sudo apt-get install -y default-jre
+sudo apt-get install -y default-jdk
 sudo update-alternatives --config java
 sudo update-alternatives --config javac
 # adiciona as variaveis do java em /etc/environment
