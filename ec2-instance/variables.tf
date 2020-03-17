@@ -8,15 +8,15 @@ DESCRIPTION
 }
 
 variable "key_name" {
-  description = "Desired name of AWS key pair"
+  description = "chave-fiap.pem"
 }
 
 variable "aws_region" {
-  description = "AWS region to launch servers."
+  description = "Região do AWS Educate padrão."
   default     = "us-east-1"
 }
 
-# Ubuntu Precise 12.04 LTS (x64)
+# Ubuntu 18.04 LTS (x64)
 variable "aws_amis" {
   default = {
     us-east-1 = "ami-07ebfd5b3428b6f4d"
