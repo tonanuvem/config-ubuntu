@@ -53,7 +53,7 @@ resource "aws_security_group" "elb" {
 # Cria um "security group" para o EC2 visando permitir o acesso Web
 resource "aws_security_group" "default" {
   name        = "fiap-ec2-security-group-ec2-instance"
-  description = "Grupo de segurança do EC2"
+  description = "Grupo de seguranca do EC2"
   vpc_id      = "${aws_vpc.default.id}"
 
   # Acesso SSH de qualquer um
