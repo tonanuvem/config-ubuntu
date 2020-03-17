@@ -3,10 +3,10 @@
 # --- DEV TOOLS
 # Instalacão do Java:
 sudo apt update -y
-sudo apt install default-jre
-sudo apt install default-jdk
-sudo update-alternatives --config java
-sudo update-alternatives --config javac
+sudo apt install -y default-jre
+sudo apt install -y default-jdk
+sudo update-alternatives -y --config java
+sudo update-alternatives -y --config javac
 # adiciona as variaveis do java em /etc/environment
 cat >> /etc/environment <<END
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
