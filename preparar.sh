@@ -63,7 +63,7 @@ mkdir ~/terraform
 cp terraform ~/terraform/
 cd ~/terraform/
 DIR_TERRAFORM=$(pwd)
-echo "export PATH=$PATH:$DIR_TERRAFORM" >> /etc/profile
+sudo echo "export PATH=$PATH:$DIR_TERRAFORM" >> /etc/profile
 source /etc/profile
 #source ~/.profile
 
