@@ -1,5 +1,26 @@
 #!/bin/bash
 
+# --- DEV TOOLS
+# Instalacão do Java:
+sudo apt update
+sudo apt install default-jre
+sudo apt install default-jdk
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
+# adiciona as variaveis do java em /etc/environment
+cat >> /etc/environment <<END
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
+export JRE_HOME="/usr/lib/jvm/java-8-openjdk-amd64/jre/"
+END
+source /etc/environment
+
+# Instalação do Python:
+sudo add-apt-repository universe
+sudo apt-get install python3-pip
+sudo apt-get install python3-venv
+
+
+# --- OPS TOOLS
 # Instalação do Docker
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
@@ -24,19 +45,25 @@ echo 'ClientAliveInterval 60' | sudo tee --append /etc/ssh/sshd_config
 sudo service ssh restart
 
 # Instalação do Terraform:
-wget https://releases.hashicorp.com/terraform/0.12.23/terraform_0.12.23_linux_amd64.zip
+curl "https://releases.hashicorp.com/terraform/0.12.23/terraform_0.12.23_linux_amd64.zip" -o "terraform_0.12.23_linux_amd64.zip"
 unzip terraform_0.12.23_linux_amd64.zip
 mkdir ~/terraform
 cp terraform ~/terraform/
 cd ~/terraform/
 DIR_TERRAFORM=$(pwd)
-echo "export PATH=$PATH:$DIR_TERRAFORM" >> ~/.profile
-source ~/.profile
+echo "export PATH=$PATH:$DIR_TERRAFORM" >> /etc/profile
+source /etc/profile
+#source ~/.profile
 
 # Verificando as versões instaladas e atualizar permissão docker:
 cd ~
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tVerificando as instações:\n\n"
+java -version
+javac -version
+python3 --version
+pip3 --version
+java --version
 sudo docker version
 docker-compose --version
 aws --version
