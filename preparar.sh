@@ -58,14 +58,14 @@ sudo service ssh restart
 # Instalação do Terraform:
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tTerraform:\n\n"
+cd /usr/local/src/
 curl "https://releases.hashicorp.com/terraform/0.12.23/terraform_0.12.23_linux_amd64.zip" -o "terraform_0.12.23_linux_amd64.zip"
 unzip terraform_0.12.23_linux_amd64.zip
-mkdir ~/terraform
-cp terraform ~/terraform/
-cd ~/terraform/
-DIR_TERRAFORM=$(pwd)
-sudo echo "export PATH=$PATH:$DIR_TERRAFORM" >> /etc/profile
-source /etc/profile
+mv terraform /usr/bin/
+#cd ~/terraform/
+#DIR_TERRAFORM=$(pwd)
+#sudo echo "export PATH=$PATH:$DIR_TERRAFORM" >> /etc/profile
+#source /etc/profile
 #source ~/.profile
 
 # Verificando as versões instaladas e atualizar permissão docker:
