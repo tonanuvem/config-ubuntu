@@ -108,7 +108,9 @@ resource "aws_elb" "web" {
 
 resource "aws_key_pair" "auth" {
   key_name   = "${var.key_name}"
-  public_key = "${file(var.public_key_path)}"
+  # ssh-keygen -y -f ./chave-fiap.pem
+  # public_key = "${file(var.public_key_path)}"
+  public_key = "$(var.public_key}"
 }
 
 # Criar um disco com 35 GB
