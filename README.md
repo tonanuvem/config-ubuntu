@@ -22,6 +22,10 @@ O pacote de cloud-init configura aspectos específicos de uma nova instância.
 > ssh
 > cat /var/log/cloud-init-output.log > script_init.log
 
+O arquivo de log de saída de cloud-init (/var/log/cloud-init-output.log) captura a saída do console para facilitar a depuração de seus scripts após uma execução se a instância não se comportar da maneira desejada.
+
+Quando um script de dados do usuário é processado, ele é copiado para /var/lib/cloud/instances/instance-id/ e executado a partir desse diretório.
+
 Fontes:
 
 > https://github.com/akskap/esk8s
