@@ -13,8 +13,8 @@ sudo update-alternatives --config java
 sudo update-alternatives --config javac
 # adiciona as variaveis do java em /etc/environment
 sudo cat >> /etc/environment <<EOL
-export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
-export JRE_HOME="/usr/lib/jvm/java-8-openjdk-amd64/jre"
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+export JRE_HOME="/usr/lib/jvm/java-11-openjdk-amd64/jre"
 EOL
 source /etc/environment
 
