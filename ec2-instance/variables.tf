@@ -6,9 +6,12 @@ variable "public_key_path" {
 #DESCRIPTION
 }
 
+variable "instance_type" {
+  default     = "t2.medium"
+}
 
 variable "key_name" {
-  description = "chave-fiap.pem"
+  default     = "chave-fiap.pem"
 }
 
 variable "aws_region" {
