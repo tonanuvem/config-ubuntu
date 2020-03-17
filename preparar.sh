@@ -71,11 +71,12 @@ source /etc/profile
 cd ~
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tVerificando as instações:\n\n"
+printf "\n\n\tDEV TOOLS:\n\n"
 java -version
 javac -version
 python3 --version
 pip3 --version
-java --version
+printf "\n\n\tOPS TOOLS:\n\n"
 sudo docker version
 docker-compose --version
 aws --version
