@@ -7,8 +7,8 @@ printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tJava:\n\n"
 sudo apt install -y default-jre
 sudo apt install -y default-jdk
-sudo update-alternatives -y --config java
-sudo update-alternatives -y --config javac
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
 # adiciona as variaveis do java em /etc/environment
 sudo cat >> /etc/environment <<END
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
