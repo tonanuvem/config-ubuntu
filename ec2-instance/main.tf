@@ -163,6 +163,7 @@ resource "aws_instance" "web" {
   # We run a remote provisioner on the instance after creating it.
   # In this case, we just install nginx and start it. By default,
   # this should be on port 80
+  /*
   provisioner "remote-exec" {
     inline = [
       "sudo apt-get -y update",
@@ -170,4 +171,6 @@ resource "aws_instance" "web" {
       "sudo service nginx start",
     ]
   }
+  */
+    
 }
