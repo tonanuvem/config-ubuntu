@@ -19,7 +19,7 @@ O pacote de cloud-init configura aspectos específicos de uma nova instância.
 > terraform apply  <br>
 
 3) Conectar 
-> ssh <br>
+> ssh -i "chave-fiap.pem" ubuntu@ip <br>
 > cat /var/log/cloud-init-output.log > script_init.log <br>
 <br>
 O arquivo de log de saída de cloud-init (/var/log/cloud-init-output.log) captura a saída do console para facilitar a depuração de seus scripts após uma execução se a instância não se comportar da maneira desejada.
