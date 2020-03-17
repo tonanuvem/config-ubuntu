@@ -50,9 +50,7 @@ resource "aws_security_group" "elb" {
   }
 }
 
-# Cria um "security group" para o EC2 para permitir o acesso Web
-# Our default security group to access
-# the instances over SSH and HTTP
+# Cria um "security group" para o EC2 visando permitir o acesso Web
 resource "aws_security_group" "default" {
   name        = "fiap-ec2-security-group-ec2-instance"
   description = "Grupo de segurança do EC2"
@@ -91,8 +89,10 @@ resource "aws_security_group" "default" {
   }
 }
 
+# Cria um Elastic Load Balancer fazer o balanceamento nas instâncias EC2 visando permitir o acesso Web
+# Regra do Load Balancer: acesso a porta 80
 resource "aws_elb" "web" {
-  name = "terraform-example-elb"
+  name = "fiap-elb-ec2-instance"
 
   subnets         = ["${aws_subnet.default.id}"]
   security_groups = ["${aws_security_group.elb.id}"]
@@ -121,7 +121,7 @@ resource "aws_instance" "web" {
     # The connection will use the local SSH agent for authentication.
   }
 
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
 
   # Lookup the correct AMI based on the region
   # we specified
