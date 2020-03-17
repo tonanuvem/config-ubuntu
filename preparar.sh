@@ -2,7 +2,7 @@
 
 # --- DEV TOOLS
 # Instalacão do Java:
-# sudo apt update -y
+sudo apt update -y
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tJava:\n\n"
 sudo apt install -y default-jre
@@ -19,7 +19,7 @@ source /etc/environment
 # Instalação do Python:
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tPython:\n\n"
-# sudo add-apt-repository universe
+sudo add-apt-repository universe
 sudo apt-get install -y python3-pip
 sudo apt-get install -y python3-venv
 
