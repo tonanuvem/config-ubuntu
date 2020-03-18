@@ -81,6 +81,9 @@ printf "\n\n\tK8S:\n\n"
 curl -s -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 chmod +x minikube 
 sudo mv minikube /usr/local/bin/
+sudo cat >> /etc/environment <<EOL
+export CHANGE_MINIKUBE_NONE_USER=true
+EOL
 # kubectl
 curl -s -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 chmod +x ./kubectl
