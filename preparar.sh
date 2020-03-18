@@ -27,6 +27,7 @@ printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tPython:\n\n"
 sudo add-apt-repository universe
 sudo apt-get install -y python3-pip > /dev/null
+python3 -m pip install --upgrade --force-reinstall pip
 sudo apt-get install -y python3-venv > /dev/null
 pip3 install --upgrade pip
 
