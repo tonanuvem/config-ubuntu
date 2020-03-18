@@ -87,6 +87,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 # kubectl bash completion : todo
 # apt-get install bash-completion
 # sudo echo "source <(kubectl completion bash)" >> /etc/profile
+mkdir /home/ubuntu/.minikube/
 # sudo chmod +r /home/ubuntu/.kube/config
 # sudo chmod +r /home/ubuntu/.minikube/client.key
 # helm
