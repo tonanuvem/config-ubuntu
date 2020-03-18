@@ -6,7 +6,7 @@ cd /usr/local/src/
 # --- DEV TOOLS
 # Instalacão do Java:
 export DEBIAN_FRONTEND=noninteractive
-sudo apt-get -yq update
+sudo apt-get update > /dev/null
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tJava:\n\n"
 sudo apt-get -yq install default-jre
