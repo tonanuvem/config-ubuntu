@@ -81,6 +81,7 @@ printf "\n\n\tK8S:\n\n"
 curl -s -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 chmod +x minikube 
 sudo mv minikube /usr/local/bin/
+# Variavel abaixo evita que precise executar "sudo chown -R $USER $HOME/.kube $HOME/.minikube" pelo usuario ubuntu
 sudo cat >> /etc/environment <<EOL
 export CHANGE_MINIKUBE_NONE_USER=true
 EOL
