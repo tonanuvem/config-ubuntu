@@ -111,6 +111,7 @@ resource "aws_instance" "web" {
   # environment it's more common to have a separate private subnet for
   # backend instances.
   subnet_id = aws_subnet.default.id
+}
 
 # uso futuro: ELB
 /*
@@ -174,5 +175,3 @@ resource "aws_key_pair" "auth" {
   # public_key = file(var.public_key_path)
 }
 */
-  
-}
