@@ -10,8 +10,8 @@ sudo apt-get update > /dev/null
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tJava:\n\n"
 sudo apt-get -yqq -o=Dpkg::Use-Pty=0 install default-jre
-sudo apt-get -yq install default-jdk
-sudo apt-get -yq install maven
+sudo apt-get -y install default-jdk > /dev/null
+sudo apt-get -y install maven > /dev/null
 sudo update-alternatives --config java
 sudo update-alternatives --config javac
 # adiciona as variaveis do java em /etc/environment
@@ -26,8 +26,8 @@ EOL
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tPython:\n\n"
 sudo add-apt-repository universe
-sudo apt-get install -y python3-pip
-sudo apt-get install -y python3-venv
+sudo apt-get install -y python3-pip > /dev/null
+sudo apt-get install -y python3-venv > /dev/null
 pip3 install --upgrade pip
 
 # --- OPS TOOLS
@@ -90,7 +90,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 sudo chmod +r /home/ubuntu/.kube/config
 sudo chmod +r /home/ubuntu/.minikube/client.key
 # helm
-wget https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz
+wget --no-verbose https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz
 tar -zxvf helm-v2.14.3-linux-amd64.tar.gz
 sudo mv linux-amd64/helm /usr/local/bin/helm
 
