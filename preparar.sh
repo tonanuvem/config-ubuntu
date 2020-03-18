@@ -80,11 +80,13 @@ printf "\n\n\tK8S:\n\n"
 curl -s -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 chmod +x minikube 
 sudo mv minikube /usr/local/bin/
-sudo echo "source <(kubectl completion bash)" >> /etc/profile
 # kubectl
 curl -s -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
+# kubectl bash completion : todo
+# apt-get install bash-completion
+# sudo echo "source <(kubectl completion bash)" >> /etc/profile
 sudo chmod +r /home/ubuntu/.kube/config
 sudo chmod +r /home/ubuntu/.minikube/client.key
 # helm
