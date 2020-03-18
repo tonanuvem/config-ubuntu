@@ -1,6 +1,7 @@
 Steps:
 
 $ mkdir certs
+<br>$ dd if=/dev/urandom of=~/.rnd bs=256 count=1
 <br>$ openssl req -nodes -newkey rsa:2048 -keyout certs/dashboard.key -out certs/dashboard.csr -subj "/C=/ST=/L=/O=/OU=/CN=kubernetes-dashboard"
 <br>$ openssl x509 -req -sha256 -days 365 -in certs/dashboard.csr -signkey certs/dashboard.key -out certs/dashboard.crt
 <br>$ kubectl create secret generic kubernetes-dashboard-certs --from-file=certs -n kube-system
