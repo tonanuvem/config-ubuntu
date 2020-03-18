@@ -65,7 +65,7 @@ sudo service ssh restart
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tTerraform:\n\n"
 curl -s "https://releases.hashicorp.com/terraform/0.12.23/terraform_0.12.23_linux_amd64.zip" -o "terraform_0.12.23_linux_amd64.zip"
-unzip -q terraform_0.12.23_linux_amd64.zip
+unzip terraform_0.12.23_linux_amd64.zip
 mv terraform /usr/bin/
 #cd ~/terraform/
 #DIR_TERRAFORM=$(pwd)
