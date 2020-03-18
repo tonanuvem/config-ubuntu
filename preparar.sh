@@ -113,4 +113,3 @@ terraform --version
 minikube version
 kubectl version --client
 helm version -c
-newgrp docker
