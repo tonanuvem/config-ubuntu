@@ -15,6 +15,7 @@ sudo update-alternatives --config javac
 sudo cat >> /etc/environment <<EOL
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 export JRE_HOME="/usr/lib/jvm/java-11-openjdk-amd64/jre"
+export SONAR_SCANNER_OPTS="-Xmx512m"
 EOL
 source /etc/environment
 
