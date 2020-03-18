@@ -4,7 +4,7 @@ variable "instance_type" {
 }
 
 variable "key_name" {
-  type        = "string"
+  type        = string
   default     = "chave-fiap"
 }
 
