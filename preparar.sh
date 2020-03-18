@@ -9,7 +9,7 @@ export DEBIAN_FRONTEND=noninteractive
 sudo apt-get update > /dev/null
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tJava:\n\n"
-sudo apt-get -yq install default-jre
+sudo apt-get -yqq -o=Dpkg::Use-Pty=0 install default-jre
 sudo apt-get -yq install default-jdk
 sudo apt-get -yq install maven
 sudo update-alternatives --config java
