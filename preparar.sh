@@ -87,8 +87,8 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 # kubectl bash completion : todo
 # apt-get install bash-completion
 # sudo echo "source <(kubectl completion bash)" >> /etc/profile
-sudo chmod +r /home/ubuntu/.kube/config
-sudo chmod +r /home/ubuntu/.minikube/client.key
+# sudo chmod +r /home/ubuntu/.kube/config
+# sudo chmod +r /home/ubuntu/.minikube/client.key
 # helm
 wget --no-verbose https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz
 tar -zxvf helm-v2.14.3-linux-amd64.tar.gz
