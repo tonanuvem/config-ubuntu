@@ -76,17 +76,17 @@ mv terraform /usr/bin/
 # Instalação das ferramentas K8S:
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tK8S:\n\n"
+# minikube
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+chmod +x minikube 
+sudo mv minikube /usr/local/bin/
+sudo echo "source <(kubectl completion bash)" >> /etc/profile
 # kubectl
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 sudo chmod +r /home/ubuntu/.kube/config
 sudo chmod +r /home/ubuntu/.minikube/client.key
-# minikube
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-chmod +x minikube 
-sudo mv minikube /usr/local/bin/
-sudo echo "source <(kubectl completion bash)" >> /etc/profile
 # helm
 wget https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz
 tar -zxvf helm-v2.14.3-linux-amd64.tar.gz
@@ -108,7 +108,7 @@ sudo docker version
 docker-compose --version
 aws --version
 terraform --version
-kubectl version --client
 minikube version
+kubectl version --client
 helm help
 newgrp docker
