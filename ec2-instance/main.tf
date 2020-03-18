@@ -64,13 +64,6 @@ resource "aws_security_group" "default" {
   }
 }
 
-resource "aws_key_pair" "auth" {
-  key_name   = var.key_name
-  # executar o comando em sua maquina local: ssh-keygen -y -f ./chave-fiap.pem > public_key.pem
-  # pegar o conteudo do arquivo e inserir no public_key.pem.
-  # public_key = file(var.public_key_path)
-}
-
 # Para verificar o resultado do script: cat /var/log/cloud-init-output.log
 data "template_file" "init" {
   template = file("${path.module}/../preparar.sh")
@@ -88,6 +81,9 @@ resource "aws_instance" "web" {
   
   # Define o script de inicialização do EC2:
   user_data = data.template_file.init.rendered
+  
+  # Define a chave
+  key_name  = var.key_name
   
   # Define o nome da VM
   tags = {
@@ -168,6 +164,14 @@ resource "aws_volume_attachment" "vol1" {
     instance_id = "${aws_instance.web.id}"
     volume_id = "${aws_ebs_volume.vol1.id}"
     device_name = "/dev/xvdb"
+}
+
+# Define um par de chaves a partir da key publica
+resource "aws_key_pair" "auth" {
+  key_name   = var.key_name
+  # executar o comando em sua maquina local: ssh-keygen -y -f ./chave-fiap.pem > public_key.pem
+  # pegar o conteudo do arquivo e inserir no public_key.pem.
+  # public_key = file(var.public_key_path)
 }
 */
   
