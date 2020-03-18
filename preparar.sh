@@ -101,26 +101,26 @@ cd ~
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tVerificando as instações:\n\n"
 printf "\n\n\tDEV TOOLS:\n\n"
-printf "\n\tJAVA:"
+printf "\n\tJAVA:\n"
 java -version
 javac -version
-printf "\n\tMAVEN:"
+printf "\n\tMAVEN:\n"
 mvn -version
-printf "\n\tPYTHON:"
+printf "\n\tPYTHON:\n"
 python3 --version
-printf "\n\tPIP:"
+printf "\n\tPIP:\n"
 pip3 --version
 printf "\n\n\tOPS TOOLS:\n\n"
-printf "\n\tDOCKER:"
+printf "\n\tDOCKER:\n"
 sudo docker version
 docker-compose --version
-printf "\n\tAWSCLI:"
+printf "\n\tAWSCLI:\n"
 aws --version
-printf "\n\tTERRAFORM:"
+printf "\n\tTERRAFORM:\n"
 terraform --version
-printf "\n\tMINIKUBE:"
+printf "\n\tMINIKUBE:\n"
 minikube version
-printf "\n\tKUBECTL:"
+printf "\n\tKUBECTL:\n"
 kubectl version --client
-printf "\n\tHELM:"
+printf "\n\tHELM:\n"
 helm version -c
