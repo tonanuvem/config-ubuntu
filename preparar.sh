@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Diretorio escolhido para salvar os pacotes baixados
+cd /usr/local/src/
+
 # --- DEV TOOLS
 # Instalacão do Java:
 export DEBIAN_FRONTEND=noninteractive
@@ -17,7 +20,7 @@ export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 export JRE_HOME="/usr/lib/jvm/java-11-openjdk-amd64/jre"
 export SONAR_SCANNER_OPTS="-Xmx512m"
 EOL
-source /etc/environment
+#source /etc/environment
 
 # Instalação do Python:
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
@@ -61,7 +64,6 @@ sudo service ssh restart
 # Instalação do Terraform:
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tTerraform:\n\n"
-cd /usr/local/src/
 curl "https://releases.hashicorp.com/terraform/0.12.23/terraform_0.12.23_linux_amd64.zip" -o "terraform_0.12.23_linux_amd64.zip"
 unzip terraform_0.12.23_linux_amd64.zip
 mv terraform /usr/bin/
@@ -70,6 +72,26 @@ mv terraform /usr/bin/
 #sudo echo "export PATH=$PATH:$DIR_TERRAFORM" >> /etc/profile
 #source /etc/profile
 #source ~/.profile
+
+# Instalação das ferramentas K8S:
+printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
+printf "\n\n\tK8S:\n\n"
+# kubectl
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+sudo chmod +r /home/ubuntu/.kube/config
+sudo chmod +r /home/ubuntu/.minikube/client.key
+# minikube
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+chmod +x minikube 
+sudo mv minikube /usr/local/bin/
+sudo echo "source <(kubectl completion bash)" >> /etc/profile
+# helm
+wget https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz
+tar -zxvf helm-v2.14.3-linux-amd64.tar.gz
+sudo mv linux-amd64/helm /usr/local/bin/helm
+
 
 # Verificando as versões instaladas e atualizar permissão docker:
 cd ~
@@ -86,4 +108,7 @@ sudo docker version
 docker-compose --version
 aws --version
 terraform --version
+kubectl version --client
+minikube version
+helm help
 newgrp docker
