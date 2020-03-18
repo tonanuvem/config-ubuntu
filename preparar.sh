@@ -6,12 +6,12 @@ cd /usr/local/src/
 # --- DEV TOOLS
 # Instalacão do Java:
 export DEBIAN_FRONTEND=noninteractive
-sudo apt-get update -yq
+sudo apt-get -yq update
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tJava:\n\n"
-sudo apt-get install -yq default-jre
-sudo apt-get install -yq default-jdk
-sudo apt-get install -yq maven
+sudo apt-get -yq install default-jre
+sudo apt-get -yq install default-jdk
+sudo apt-get -yq install maven
 sudo update-alternatives --config java
 sudo update-alternatives --config javac
 # adiciona as variaveis do java em /etc/environment
