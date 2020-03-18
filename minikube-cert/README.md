@@ -12,6 +12,7 @@ $ kubectl create -f kubernetes-dashboard.yaml
 
 Links:
 
+> https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/ <br>
 > https://github.com/terraform-aws-modules/terraform-aws-elb/tree/master/examples/complete <br>
 > https://hackernoon.com/getting-a-free-ssl-certificate-on-aws-a-how-to-guide-6ef29e576d22 <br>
 > https://github.com/kubernetes/dashboard/issues/2954
