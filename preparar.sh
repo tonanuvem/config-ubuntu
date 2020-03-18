@@ -9,7 +9,7 @@ export DEBIAN_FRONTEND=noninteractive
 sudo apt-get update > /dev/null
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tJava:\n\n"
-sudo apt-get -yqq -o=Dpkg::Use-Pty=0 install default-jre
+sudo apt-get -y install default-jre > /dev/null
 sudo apt-get -y install default-jdk > /dev/null
 sudo apt-get -y install maven > /dev/null
 sudo update-alternatives --config java
@@ -50,7 +50,7 @@ printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tAWS CLI e SSH:\n\n"
 curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 sudo apt-get install unzip
-unzip awscliv2.zip
+unzip -q awscliv2.zip
 sudo ./aws/install
 
 # Criar arquivo vazio das credenciais da AWS:
@@ -65,7 +65,7 @@ sudo service ssh restart
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tTerraform:\n\n"
 curl -s "https://releases.hashicorp.com/terraform/0.12.23/terraform_0.12.23_linux_amd64.zip" -o "terraform_0.12.23_linux_amd64.zip"
-unzip terraform_0.12.23_linux_amd64.zip
+unzip -q terraform_0.12.23_linux_amd64.zip
 mv terraform /usr/bin/
 #cd ~/terraform/
 #DIR_TERRAFORM=$(pwd)
