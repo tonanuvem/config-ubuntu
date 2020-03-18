@@ -29,5 +29,6 @@ Quando um script de dados do usuário é processado, ele é copiado para /var/li
 Fontes:
 
 > https://github.com/akskap/esk8s
-> https://github.com/terraform-providers/terraform-provider-aws/tree/master/examples/two-tier
-> https://github.com/heap/terraform-ebs-attachmentizer
+<br>> https://github.com/terraform-providers/terraform-provider-aws/tree/master/examples/two-tier
+<br>> https://github.com/heap/terraform-ebs-attachmentizer
+<br>> https://github.com/terraform-aws-modules
