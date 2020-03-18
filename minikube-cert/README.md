@@ -6,7 +6,10 @@ $ mkdir certs
 <br>$ openssl x509 -req -sha256 -days 365 -in certs/dashboard.csr -signkey certs/dashboard.key -out certs/dashboard.crt
 <br>$ kubectl create secret generic kubernetes-dashboard-certs --from-file=certs -n kube-system
 
-Ajustar o serice com Nodeport:
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
+<br>$ nano recommended.yaml
+
+Ajustar o serice com Nodeport: type: NodePort
 
 $ kubectl create -f kubernetes-dashboard.yaml
 
