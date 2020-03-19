@@ -1,5 +1,5 @@
 variable "hostname" {
-  type = "map"
+  type = map
   default = {
     master   = "master"
     node1    = "node1"
