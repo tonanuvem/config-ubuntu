@@ -80,8 +80,8 @@ data "template_cloudinit_config" "config_master" {
   }
 }
 data "template_cloudinit_config" "config_node1" {
-  gzip          = true
-  base64_encode = true
+  #gzip          = true
+  #base64_encode = true
   # scripts em varias partes:
   #part {
   #  filename     = "config-node1.sh"
