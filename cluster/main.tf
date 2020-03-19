@@ -84,7 +84,7 @@ data "template_cloudinit_config" "config_node1" {
     content      = file("${path.module}/config-node1.sh")
   }
   part {
-    filename     = "../preparar.sh"
+    filename     = "preparar.sh"
     content_type = "text/x-shellscript"
     content      = file("${path.module}/../preparar.sh")
   }
@@ -99,7 +99,7 @@ data "template_cloudinit_config" "config_node2" {
     content      = file("${path.module}/config-node2.sh")
   }
   part {
-    filename     = "../preparar.sh"
+    filename     = "preparar.sh"
     content_type = "text/x-shellscript"
     content      = file("${path.module}/../preparar.sh")
   }
