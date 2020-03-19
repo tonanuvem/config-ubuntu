@@ -1,23 +1,23 @@
-output "Master dns_externo" {
+output "Master_dns_externo" {
   value = "${aws_instance.master.public_dns}"
 }
 
-output "Master ip_externo" {
+output "Master_ip_externo" {
   value = "${aws_instance.master.public_ip}"
 }
 
-output "Node 1 dns_externo" {
+output "Node_1_dns_externo" {
   value = "${aws_instance.node1.public_dns}"
 }
 
-output "Node 1 ip_externo" {
+output "Node_1_ip_externo" {
   value = "${aws_instance.node1.public_ip}"
 }
 
-output "Node 2 dns_externo" {
+output "Node_2_dns_externo" {
   value = "${aws_instance.node2.public_dns}"
 }
 
-output "Node 2 ip_externo" {
+output "Node_2_ip_externo" {
   value = "${aws_instance.node2.public_ip}"
 }
