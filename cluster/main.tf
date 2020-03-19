@@ -76,7 +76,7 @@ data "template_cloudinit_config" "config_node1" {
   part {
     filename     = "config-node1.sh"
     content_type = "text/cloud-config"
-    content      = dfile("${path.module}/config-node1.sh")
+    content      = file("${path.module}/config-node1.sh")
   }
   part {
     filename     = "../preparar.sh"
@@ -157,7 +157,7 @@ resource "aws_instance" "node1" {
 
 resource "aws_instance" "node2" {  
   # Define o script de inicialização do EC2:
-  uuser_data = data.template_cloudinit_config.config_node2.rendered
+  user_data = data.template_cloudinit_config.config_node2.rendered
   
   # Define a chave
   key_name  = var.key_name
