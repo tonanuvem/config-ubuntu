@@ -117,7 +117,8 @@ data "template_cloudinit_config" "config_node2" {
 resource "aws_instance" "master" {  
   # Define o script de inicialização do EC2:
   # user_data = data.template_file.init.rendered
-  user_data = data.template_cloudinit_config.config_master.rendered
+  #user_data = data.template_cloudinit_config.config_master.rendered
+  user_data = data.template_file.init.rendered
   
   # Define a chave
   key_name  = var.key_name
@@ -144,7 +145,8 @@ resource "aws_instance" "master" {
 
 resource "aws_instance" "node1" {  
   # Define o script de inicialização do EC2:
-  user_data = data.template_cloudinit_config.config_node1.rendered
+  #user_data = data.template_cloudinit_config.config_node1.rendered
+  user_data = data.template_file.init.rendered
   
   # Define a chave
   key_name  = var.key_name
