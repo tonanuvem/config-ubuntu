@@ -93,7 +93,6 @@ data "template_cloudinit_config" "config_node1" {
     content      = "hostname: node1"
   }
   part {
-    filename     = "preparar.sh"
     content_type = "text/x-shellscript"
     #content      = file("${path.module}/../preparar.sh")
     content      = data.template_file.init.rendered
