@@ -78,11 +78,11 @@ data "template_cloudinit_config" "config_node1" {
   gzip          = true
   base64_encode = true
   # scripts em varias partes:
-  part {
-    filename     = "config-node1.sh"
-    content_type = "text/x-shellscript"
-    content      = file("${path.module}/config-node1.sh")
-  }
+  #part {
+  #  filename     = "config-node1.sh"
+  #  content_type = "text/x-shellscript"
+  #  content      = file("${path.module}/config-node1.sh")
+  #}
   part {
     filename     = "preparar.sh"
     content_type = "text/x-shellscript"
@@ -101,7 +101,7 @@ data "template_cloudinit_config" "config_node2" {
   part {
     filename     = "preparar.sh"
     content_type = "text/x-shellscript"
-    content      = file("${path.module}/../preparar.sh")
+    content      = data.template_file.init.rendered
   }
 }
 
