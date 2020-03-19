@@ -50,9 +50,9 @@ resource "aws_security_group" "default" {
 }
 
 # Para verificar o resultado do script: cat /var/log/cloud-init-output.log
-#data "template_file" "init" {
-#  template = file("${path.module}/../preparar.sh")
-#}
+data "template_file" "init" {
+  template = file("${path.module}/../preparar.sh")
+}
 # Render a part using a `template_file`
 #data "template_file" "script" {
 #  template = "${file("${path.module}/init.tpl")}"
@@ -68,11 +68,11 @@ data "template_cloudinit_config" "config_master" {
     content_type = "text/x-shellscript"
     content      = file("${path.module}/config-master.sh")
   }
-  part {
-    filename     = "../preparar.sh"
-    content_type = "text/x-shellscript"
-    content      = file("${path.module}/../preparar.sh")
-  }
+  #part {
+  #  filename     = "../preparar.sh"
+  #  content_type = "text/x-shellscript"
+  #  content      = file("${path.module}/../preparar.sh")
+  #}
 }
 data "template_cloudinit_config" "config_node1" {
   gzip          = true
