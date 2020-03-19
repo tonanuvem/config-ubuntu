@@ -9,4 +9,5 @@ As seguintes VMs serão criadas:
 Fontes:
 
 > https://www.terraform.io/docs/providers/template/d/cloudinit_config.html <br>
-> https://github.com/terraform-providers/terraform-provider-aws/issues/1148
+> https://github.com/terraform-providers/terraform-provider-aws/issues/1148 <br>
+> https://github.com/cyr-riv/terraform/tree/master/rancher-single-aws
