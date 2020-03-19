@@ -61,12 +61,12 @@ data "template_cloudinit_config" "config_master" {
   part {
     filename     = "config-master.sh"
     content_type = "text/cloud-config"
-    content      = data.template_file.script.rendered
+    content      = file("${path.module}/config-master.sh")
   }
   part {
     filename     = "../preparar.sh"
     content_type = "text/cloud-config"
-    content      = data.template_file.script.rendered
+    content      = file("${path.module}/../preparar.sh")
   }
 }
 data "template_cloudinit_config" "config_node1" {
@@ -76,12 +76,12 @@ data "template_cloudinit_config" "config_node1" {
   part {
     filename     = "config-node1.sh"
     content_type = "text/cloud-config"
-    content      = data.template_file.script.rendered
+    content      = dfile("${path.module}/config-node1.sh")
   }
   part {
     filename     = "../preparar.sh"
     content_type = "text/cloud-config"
-    content      = data.template_file.script.rendered
+    content      = file("${path.module}/../preparar.sh")
   }
 }
 data "template_cloudinit_config" "config_node2" {
@@ -91,12 +91,12 @@ data "template_cloudinit_config" "config_node2" {
   part {
     filename     = "config-node2.sh"
     content_type = "text/cloud-config"
-    content      = data.template_file.script.rendered
+    content      = file("${path.module}/config-node2.sh")
   }
   part {
     filename     = "../preparar.sh"
     content_type = "text/cloud-config"
-    content      = data.template_file.script.rendered
+    content      = file("${path.module}/../preparar.sh")
   }
 }
 
