@@ -53,12 +53,17 @@ resource "aws_security_group" "default" {
 data "template_file" "init" {
   template = file("${path.module}/../preparar.sh")
 }
+data "template_file" "master" {
+  template = file("${path.module}/config-master.sh")
+}
+data "template_file" "node1" {
+  template = file("${path.module}/config-node1.sh")
+}
+data "template_file" "node2" {
+  template = file("${path.module}/config-node2.sh")
+}
 # Render a part using a `template_file`
-#data "template_file" "script" {
-#  template = "${file("${path.module}/init.tpl")}"
-#}
-# Render a multi-part cloud-init config making use of the part
-# above, and other source files
+# Render a multi-part cloud-init config 
 data "template_cloudinit_config" "config_master" {
   gzip          = true
   base64_encode = true
@@ -66,13 +71,13 @@ data "template_cloudinit_config" "config_master" {
   part {
     filename     = "config-master.sh"
     content_type = "text/x-shellscript"
-    content      = file("${path.module}/config-master.sh")
+    content      = data.template_file.master.rendered
   }
-  #part {
-  #  filename     = "../preparar.sh"
-  #  content_type = "text/x-shellscript"
-  #  content      = file("${path.module}/../preparar.sh")
-  #}
+  part {
+    filename     = "../preparar.sh"
+    content_type = "text/x-shellscript"
+    content      = data.template_file.init.rendered
+  }
 }
 data "template_cloudinit_config" "config_node1" {
   gzip          = true
