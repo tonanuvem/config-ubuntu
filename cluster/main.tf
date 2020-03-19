@@ -53,6 +53,11 @@ resource "aws_security_group" "default" {
 #data "template_file" "init" {
 #  template = file("${path.module}/../preparar.sh")
 #}
+# Render a part using a `template_file`
+#data "template_file" "script" {
+#  template = "${file("${path.module}/init.tpl")}"
+#}
+# Render a multi-part cloud-init config making use of the part
 # above, and other source files
 data "template_cloudinit_config" "config_master" {
   gzip          = true
@@ -60,12 +65,12 @@ data "template_cloudinit_config" "config_master" {
   # scripts em varias partes:
   part {
     filename     = "config-master.sh"
-    content_type = "text/cloud-config"
+    content_type = "text/x-shellscript"
     content      = file("${path.module}/config-master.sh")
   }
   part {
     filename     = "../preparar.sh"
-    content_type = "text/cloud-config"
+    content_type = "text/x-shellscript"
     content      = file("${path.module}/../preparar.sh")
   }
 }
@@ -75,12 +80,12 @@ data "template_cloudinit_config" "config_node1" {
   # scripts em varias partes:
   part {
     filename     = "config-node1.sh"
-    content_type = "text/cloud-config"
+    content_type = "text/x-shellscript"
     content      = file("${path.module}/config-node1.sh")
   }
   part {
     filename     = "../preparar.sh"
-    content_type = "text/cloud-config"
+    content_type = "text/x-shellscript"
     content      = file("${path.module}/../preparar.sh")
   }
 }
@@ -90,12 +95,12 @@ data "template_cloudinit_config" "config_node2" {
   # scripts em varias partes:
   part {
     filename     = "config-node2.sh"
-    content_type = "text/cloud-config"
+    content_type = "text/x-shellscript"
     content      = file("${path.module}/config-node2.sh")
   }
   part {
     filename     = "../preparar.sh"
-    content_type = "text/cloud-config"
+    content_type = "text/x-shellscript"
     content      = file("${path.module}/../preparar.sh")
   }
 }
