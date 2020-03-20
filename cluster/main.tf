@@ -33,12 +33,20 @@ resource "aws_security_group" "default" {
 
   # LAB TEMPORARIO - JAMAIS EM PRD
   # Acesso TOTAL de qualquer um
+  # portas TCP
   ingress {
     from_port   = 0
     to_port     = 65353
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  # portas UDP
+  ingress {
+    from_port   = 0
+    to_port     = 65353
+    protocol    = "udp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }  
   
   # Acesso de saida para internet
   egress {
