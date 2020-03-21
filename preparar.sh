@@ -3,10 +3,12 @@
 # Diretorio escolhido para salvar os pacotes baixados
 cd /usr/local/src/
 # utils: cria script para verificar ip publico.
-sudo cat >> /home/ubuntu/ip.sh <<EOL
+sudo cat >> /home/ubuntu/ip <<EOL
 curl checkip.amazonaws.com
 EOL
-chmod +x /home/ubuntu/ip.sh
+chmod +x /home/ubuntu/ip
+ln -s /var/log/cloud-init-output.log /home/ubuntu/init.log
+ln -s /var/lib/cloud/instances/ /home/ubuntu/scripts_init/
 
 # --- DEV TOOLS
 # Instalacão do Java:
