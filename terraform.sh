@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Diretorio escolhido para salvar os pacotes baixados
-cd /usr/local/src/
 # utils: cria script para verificar ip publico.
 sudo cat >> /home/ubuntu/ip <<EOL
 curl checkip.amazonaws.com
