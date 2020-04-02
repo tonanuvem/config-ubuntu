@@ -103,8 +103,8 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 # sudo chmod +r /home/ubuntu/.kube/config
 # sudo chmod +r /home/ubuntu/.minikube/client.key
 # helm
-curl -s https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz -o helm-linux-amd64.tar.gz
-# curl -s https://get.helm.sh/helm-v3.1.2-linux-amd64.tar.gz -o helm-linux-amd64.tar.gz
+# curl -s https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz -o helm-linux-amd64.tar.gz
+curl -s https://get.helm.sh/helm-v3.1.2-linux-amd64.tar.gz -o helm-linux-amd64.tar.gz
 tar -zxvf helm-linux-amd64.tar.gz
 sudo mv linux-amd64/helm /usr/local/bin/helm
 
