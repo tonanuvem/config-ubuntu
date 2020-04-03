@@ -93,9 +93,15 @@ sudo cat >> /etc/environment <<EOL
 export CHANGE_MINIKUBE_NONE_USER=true
 EOL
 # kubectl
-curl -s -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
+#curl -s -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+#chmod +x ./kubectl
+#sudo mv ./kubectl /usr/local/bin/kubectl
+#sudo swapoff -a
+# kubeadm kubelet kubectl
+echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+apt-get update
+apt-get install kubeadm kubelet kubectl
 # kubectl bash completion : todo
 # apt-get install bash-completion
 # sudo echo "source <(kubectl completion bash)" >> /etc/profile
