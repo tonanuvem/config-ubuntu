@@ -13,6 +13,7 @@ sudo service ssh restart
 # Instalação do Terraform: 
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tTerraform:\n\n"
+sudo apt-get install unzip
 curl -s "https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip" -o "terraform_linux_amd64.zip"
 unzip terraform_linux_amd64.zip
 sudo mv terraform /usr/bin/
