@@ -27,7 +27,7 @@ printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tTerraform:\n\n"
 curl -s "https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip" -o "terraform_linux_amd64.zip"
 unzip terraform_linux_amd64.zip
-mv terraform /usr/bin/
+sudo mv terraform /usr/bin/
 
 # Instalação das ferramentas K8S:
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
@@ -43,8 +43,8 @@ EOL
 # kubeadm kubelet kubectl
 echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-apt-get -y update
-apt-get -y install kubeadm kubelet kubectl
+sudo apt-get -y update
+sudo apt-get -y install kubeadm kubelet kubectl
 
 # helm
 # curl -s https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz -o helm-linux-amd64.tar.gz
