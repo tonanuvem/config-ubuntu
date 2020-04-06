@@ -49,8 +49,8 @@ sudo mv minikube /usr/bin/
 # kubeadm kubelet kubectl
 #echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
 #curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-sudo snap -y update
-sudo snap -y install kubeadm kubelet kubectl
+sudo snap update
+sudo snap install kubeadm kubelet kubectl
 
 # helm
 # curl -s https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz -o helm-linux-amd64.tar.gz
