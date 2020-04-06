@@ -7,8 +7,8 @@ EOL
 chmod +x /home/ubuntu/ip
 
 # Habilitar a configuração para o servidor não derrubar suas conexões:
-echo 'ClientAliveInterval 60' | sudo tee --append /etc/ssh/sshd_config
-sudo service ssh restart
+#echo 'ClientAliveInterval 60' | sudo tee --append /etc/ssh/sshd_config
+#sudo service ssh restart
 
 # Instalação do Terraform: 
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
