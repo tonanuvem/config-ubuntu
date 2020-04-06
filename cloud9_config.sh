@@ -42,15 +42,15 @@ curl -s -Lo minikube https://storage.googleapis.com/minikube/releases/latest/min
 chmod +x minikube 
 sudo mv minikube /usr/bin/
 # Variavel abaixo evita que precise executar " pelo usuario ubuntu
-sudo chown -R $USER $HOME/.kube $HOME/.minikube
+# sudo chown -R $USER $HOME/.kube $HOME/.minikube
 #sudo cat >> /etc/environment <<EOL
 #export CHANGE_MINIKUBE_NONE_USER=true
 #EOL
 # kubeadm kubelet kubectl
-echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-sudo apt-get -y update
-sudo apt-get -y install kubeadm kubelet kubectl
+#echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
+#curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+sudo snap -y update
+sudo snap -y install kubeadm kubelet kubectl
 
 # helm
 # curl -s https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz -o helm-linux-amd64.tar.gz
