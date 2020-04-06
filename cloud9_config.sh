@@ -8,6 +8,11 @@ chmod +x /home/ubuntu/ip
 
 # --- DEV TOOLS
 # Instalacão do Java:
+export DEBIAN_FRONTEND=noninteractive
+sudo apt-get update > /dev/null
+printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
+printf "\n\n\tMaven (Java):\n\n"
+sudo apt-get -y install maven > /dev/null
 # Instalação do Python:
 
 # --- OPS TOOLS
@@ -35,11 +40,12 @@ printf "\n\n\tK8S:\n\n"
 # minikube
 curl -s -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 chmod +x minikube 
-sudo mv minikube /usr/local/bin/
-# Variavel abaixo evita que precise executar "sudo chown -R $USER $HOME/.kube $HOME/.minikube" pelo usuario ubuntu
-sudo cat >> /etc/environment <<EOL
-export CHANGE_MINIKUBE_NONE_USER=true
-EOL
+sudo mv minikube /usr/bin/
+# Variavel abaixo evita que precise executar " pelo usuario ubuntu
+sudo chown -R $USER $HOME/.kube $HOME/.minikube
+#sudo cat >> /etc/environment <<EOL
+#export CHANGE_MINIKUBE_NONE_USER=true
+#EOL
 # kubeadm kubelet kubectl
 echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
