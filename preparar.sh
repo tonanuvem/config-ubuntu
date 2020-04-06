@@ -29,6 +29,20 @@ export SONAR_SCANNER_OPTS="-Xmx512m"
 EOL
 #source /etc/environment
 
+#Chrome, ChromeDriver e Selenium
+sudo apt-get install -y xvfb libxi6 libgconf-2-4
+sudo curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
+sudo echo "deb [arch=amd64]  http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
+sudo apt-get -y update
+sudo apt-get -y install google-chrome-stable=80.0.3987.163-1
+apt-cache policy google-chrome-stable
+#curl -s https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip
+curl -s https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_linux64.zip -o chromedriver_linux64.zip
+unzip chromedriver_linux64.zip
+sudo mv chromedriver /usr/bin/chromedriver
+#sudo chown root:root /usr/bin/chromedriver
+sudo chmod +x /usr/bin/chromedriver
+
 # Instalação do Python:
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tPython:\n\n"
@@ -125,6 +139,9 @@ java -version
 javac -version
 printf "\n\tMAVEN:\n"
 mvn -version
+printf "\n\tCHROME e CHROMEDRIVER:\n"
+google-chrome --version
+chromedriver --version
 printf "\n\tPYTHON:\n"
 python3 --version
 printf "\n\tPIP:\n"
