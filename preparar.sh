@@ -44,7 +44,7 @@ unzip chromedriver_linux64.zip
 sudo mv chromedriver /usr/bin/chromedriver
 #sudo chown root:root /usr/bin/chromedriver
 sudo chmod +x /usr/bin/chromedriver
-# configs da tela:
+# configs da tela: https://stackoverflow.com/questions/54391665/java-run-chromedriver-with-selenium-on-ubuntu-server
 #Xvfb -ac :99 -screen 0 1280x1024x16 &
 #export DISPLAY=:99
 
