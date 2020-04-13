@@ -31,12 +31,12 @@ EOL
 #source /etc/environment
 
 #Chrome, ChromeDriver e Selenium
-sudo apt-get install -y xvfb libxi6 libgconf-2-4
+sudo apt-get install -y xvfb libxi6 libgconf-2-4 > /dev/null
 sudo apt -y --fix-broken install
 sudo curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
 sudo echo "deb [arch=amd64]  http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
-sudo apt-get -y update
-sudo apt-get -y install google-chrome-stable=81.0.4044.92-1
+sudo apt-get -y update > /dev/null
+sudo apt-get -y install google-chrome-stable=81.0.4044.92-1 > /dev/null
 apt-cache policy google-chrome-stable
 curl -s https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip -o chromedriver_linux64.zip
 #curl -s https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_linux64.zip -o chromedriver_linux64.zip
