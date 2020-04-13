@@ -38,8 +38,8 @@ sudo echo "deb [arch=amd64]  http://dl.google.com/linux/chrome/deb/ stable main"
 sudo apt-get -y update
 sudo apt-get -y install google-chrome-stable=81.0.4044.92-1
 apt-cache policy google-chrome-stable
-#curl -s https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip
-curl -s https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_linux64.zip -o chromedriver_linux64.zip
+curl -s https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip -o chromedriver_linux64.zip
+#curl -s https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_linux64.zip -o chromedriver_linux64.zip
 unzip chromedriver_linux64.zip
 sudo mv chromedriver /usr/bin/chromedriver
 #sudo chown root:root /usr/bin/chromedriver
