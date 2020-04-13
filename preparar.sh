@@ -31,6 +31,7 @@ EOL
 
 #Chrome, ChromeDriver e Selenium
 sudo apt-get install -y xvfb libxi6 libgconf-2-4
+sudo apt -y --fix-broken install
 sudo curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
 sudo echo "deb [arch=amd64]  http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
 sudo apt-get -y update
