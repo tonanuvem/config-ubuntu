@@ -73,7 +73,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tAWS CLI e SSH:\n\n"
 curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-sudo apt-get install unzip
 unzip -q awscliv2.zip
 sudo ./aws/install
 
