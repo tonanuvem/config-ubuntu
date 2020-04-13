@@ -14,6 +14,7 @@ ln -s /var/lib/cloud/instances/ /home/ubuntu/scripts_init/
 # Instalacão do Java:
 export DEBIAN_FRONTEND=noninteractive
 sudo apt-get update > /dev/null
+sudo apt-get install unzip
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tJava:\n\n"
 sudo apt-get -y install default-jre > /dev/null
