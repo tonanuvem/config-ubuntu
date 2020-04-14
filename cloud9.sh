@@ -62,6 +62,7 @@ curl -s https://get.helm.sh/helm-v3.1.2-linux-amd64.tar.gz -o helm-linux-amd64.t
 tar -zxvf helm-linux-amd64.tar.gz
 sudo mv linux-amd64/helm /usr/local/bin/helm
 rm -rf linux-amd64
+rm -rf helm-linux-amd64.tar.gz
 
 # Verificando as versões instaladas e atualizar permissão docker:
 cd ~
