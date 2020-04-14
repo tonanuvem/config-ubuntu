@@ -3,10 +3,10 @@
 # https://code.visualstudio.com/docs/remote/ssh
 
 # utils: cria script para verificar ip publico.
-sudo cat >> /home/ubuntu/ip <<EOL
+sudo cat >> /home/ubuntu/enviroment/ip <<EOL
 curl checkip.amazonaws.com
 EOL
-chmod +x /home/ubuntu/ip
+chmod +x /home/ubuntu/enviroment/ip
 
 # --- DEV TOOLS
 # Instalacão do Java:
@@ -35,6 +35,7 @@ printf "\n\n\tTerraform:\n\n"
 curl -s "https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip" -o "terraform_linux_amd64.zip"
 unzip terraform_linux_amd64.zip
 sudo mv terraform /usr/bin/
+rm -rf terraform_linux_amd64.zip
 
 # Instalação das ferramentas K8S:
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
@@ -59,7 +60,7 @@ sudo snap install kubectl --classic
 curl -s https://get.helm.sh/helm-v3.1.2-linux-amd64.tar.gz -o helm-linux-amd64.tar.gz
 tar -zxvf helm-linux-amd64.tar.gz
 sudo mv linux-amd64/helm /usr/local/bin/helm
-
+rm -rf linux-amd64
 
 # Verificando as versões instaladas e atualizar permissão docker:
 cd ~
