@@ -3,7 +3,6 @@
 # https://code.visualstudio.com/docs/remote/ssh
 
 # utils: cria script para verificar ip publico.
-touch ~/environment/ip
 sudo cat >> ~/environment/ip <<EOL
 curl checkip.amazonaws.com
 EOL
