@@ -3,8 +3,8 @@
 # https://code.visualstudio.com/docs/remote/ssh
 
 # utils: cria script para verificar ip publico.
-touch /home/ubuntu/enviroment/ip
-sudo cat >> /home/ubuntu/enviroment/ip <<EOL
+touch ~/enviroment/ip
+sudo cat >> ~/enviroment/ip <<EOL
 curl checkip.amazonaws.com
 EOL
 chmod +x /home/ubuntu/enviroment/ip
