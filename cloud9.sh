@@ -6,7 +6,7 @@
 sudo cat >> ~/environment/ip <<EOL
 curl checkip.amazonaws.com
 EOL
-chmod +x /home/ubuntu/enviroment/ip
+chmod +x ~/environment/ip
 
 # --- DEV TOOLS
 # Instalacão do Java:
