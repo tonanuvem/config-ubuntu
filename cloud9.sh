@@ -86,6 +86,8 @@ sudo docker version
 docker-compose --version
 printf "\n\tAWSCLI:\n"
 aws --version
+printf "\n\tElastic Beanstalker CLI:\n"
+eb --version
 printf "\n\tTERRAFORM:\n"
 terraform --version
 printf "\n\tMINIKUBE:\n"
