@@ -97,3 +97,5 @@ printf "\n\tKUBECTL:\n"
 kubectl version --client
 printf "\n\tHELM:\n"
 helm version -c
+
+source ~/.bash_profile
