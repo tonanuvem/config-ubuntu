@@ -62,7 +62,7 @@ pip3 install --upgrade pip
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tDocker:\n\n"
 curl -fsSL https://get.docker.com -o get-docker.sh
-sh get-docker.sh
+sudo sh get-docker.sh
 # sudo gpasswd -a $USER docker
 sudo gpasswd -a ubuntu docker
 
@@ -92,7 +92,7 @@ printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tTerraform:\n\n"
 curl -s "https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip" -o "terraform_linux_amd64.zip"
 unzip terraform_linux_amd64.zip
-mv terraform /usr/bin/
+sudo mv terraform /usr/bin/
 #cd ~/terraform/
 #DIR_TERRAFORM=$(pwd)
 #sudo echo "export PATH=$PATH:$DIR_TERRAFORM" >> /etc/profile
