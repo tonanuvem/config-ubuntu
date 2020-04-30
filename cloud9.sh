@@ -15,7 +15,11 @@ sudo apt-get update > /dev/null
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tMaven (Java):\n\n"
 sudo apt-get -y install maven > /dev/null
-# Instalação do Python:
+# Instalação do SPRING:
+curl -s "https://get.sdkman.io" | bash > /dev/null
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+sdk install springboot
+spring version
 
 # --- OPS TOOLS
 
@@ -77,6 +81,8 @@ java -version
 javac -version
 printf "\n\tMAVEN:\n"
 mvn -version
+printf "\n\tSPRING:\n"
+spring --version
 printf "\n\tPYTHON:\n"
 python3 --version
 printf "\n\tPIP:\n"
