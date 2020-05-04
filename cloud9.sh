@@ -36,6 +36,7 @@ git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git
 python3 aws-elastic-beanstalk-cli-setup/scripts/ebcli_installer.py
 echo 'export PATH="/home/ubuntu/.ebcli-virtual-env/executables:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
 echo 'export PATH=/home/ubuntu/.pyenv/versions/3.7.2/bin:$PATH' >> /home/ubuntu/.bash_profile && source /home/ubuntu/.bash_profile
+rm -rf aws-elastic-beanstalk-cli-setup
 
 # Instalação do Terraform:
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
