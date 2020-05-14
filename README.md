@@ -1,7 +1,7 @@
 # config-ubuntu
 
 Scripts para preparar a VM Ubuntu para rodar os LABS no Educate.
-
+---
 O pacote de cloud-init configura aspectos específicos de uma nova instância.
 
 1) Preparação:
@@ -11,21 +11,22 @@ O pacote de cloud-init configura aspectos específicos de uma nova instância.
 
 > git clone  <br>
 > pegar o conteudo do arquivo e inserir no public_key.pem.  <br>
-
+---
 2) Execução
 > cd ec2-instance  <br>
 > terraform init  <br>
 > terraform plan  <br>
 > terraform apply  <br>
-
+---
 3) Conectar 
 > ssh -i "chave-fiap.pem" ubuntu@ip <br>
 > cat /var/log/cloud-init-output.log > script_init.log <br>
-<br>
+<br><br>
 O arquivo de log de saída de cloud-init (/var/log/cloud-init-output.log) captura a saída do console para facilitar a depuração de seus scripts após uma execução se a instância não se comportar da maneira desejada.
-
+<br><br>
 Quando um script de dados do usuário é processado, ele é copiado para /var/lib/cloud/instances/instance-id/ e executado a partir desse diretório.
-<br>
+<br><br>
+---
 4) Comandos linux para verificar a utilização de componentes (ex: memória, cpu e disco) 
 
 Utilização de cpu
@@ -39,7 +40,7 @@ Espaço em disco
 
 Pastas que ocupam mais espaços na raiz /
 > sudo du -cha --max-depth=1 / | grep -E "M|G"
-
+---
 Fontes:
 
 > https://github.com/akskap/esk8s
