@@ -14,8 +14,14 @@ VOLUMEID=$(aws ec2 describe-instances \
   --query "Reservations[0].Instances[0].BlockDeviceMappings[0].Ebs.VolumeId" \
   --output text)
 
+echo "Verifica valor antes do comando modify-volume :"
+aws ec2 describe-volumes-modifications --volume-id $VOLUMEID
+
 # Resize the EBS volume.
 aws ec2 modify-volume --volume-id $VOLUMEID --size $SIZE
+
+echo "Verifica valor depois do comando modify-volume :"
+aws ec2 describe-volumes-modifications --volume-id $VOLUMEID
 
 # Wait for the resize to finish.
 while [ \
