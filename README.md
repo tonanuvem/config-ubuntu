@@ -28,16 +28,16 @@ Quando um script de dados do usuário é processado, ele é copiado para /var/li
 <br>
 4) Comandos linux para verificar a utilização de componentes (ex: memória, cpu e disco) 
 
-<ul>Utilização de cpu
+Utilização de cpu
 > htop
 
-<ul>Utilização de memória
+Utilização de memória
 > free -mh
 
-<ul>Espaço em disco
+Espaço em disco
 > df -h
 
-<ul>Pastas que ocupam mais espaços na raiz /
+Pastas que ocupam mais espaços na raiz /
 > sudo du -cha --max-depth=1 / | grep -E "M|G"
 
 Fontes:
