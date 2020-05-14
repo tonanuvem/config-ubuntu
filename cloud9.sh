@@ -9,17 +9,17 @@ EOL
 chmod +x ~/environment/ip
 
 # --- DEV TOOLS
+# Instalacão do Maven Java:
+export DEBIAN_FRONTEND=noninteractive
+#sudo apt-get update > /dev/null
+printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
+printf "\n\n\tMaven (Java):\n\n"
+sudo apt-get -y install maven > /dev/null
 # Instalação do SPRING:
 curl -s "https://get.sdkman.io" | bash > /dev/null
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 sdk install springboot
 spring version
-# Instalacão do Maven Java:
-export DEBIAN_FRONTEND=noninteractive
-sudo apt-get update > /dev/null
-printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
-printf "\n\n\tMaven (Java):\n\n"
-sudo apt-get -y install maven > /dev/null
 
 # --- OPS TOOLS
 
