@@ -22,9 +22,9 @@ O pacote de cloud-init configura aspectos específicos de uma nova instância.
 > ssh -i "chave-fiap.pem" ubuntu@ip <br>
 > cat /var/log/cloud-init-output.log > script_init.log <br>
 <br><br>
-O arquivo de log de saída de cloud-init (/var/log/cloud-init-output.log) captura a saída do console para facilitar a depuração de seus scripts após uma execução se a instância não se comportar da maneira desejada.
+<O arquivo de log de saída de cloud-init (/var/log/cloud-init-output.log) captura a saída do console para facilitar a depuração de seus scripts após uma execução se a instância não se comportar da maneira desejada.
 <br><br>
-Quando um script de dados do usuário é processado, ele é copiado para /var/lib/cloud/instances/instance-id/ e executado a partir desse diretório.
+<Quando um script de dados do usuário é processado, ele é copiado para /var/lib/cloud/instances/instance-id/ e executado a partir desse diretório.
 <br><br>
 ---
 4) Comandos linux para verificar a utilização de componentes (ex: memória, cpu e disco) 
