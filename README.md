@@ -25,6 +25,20 @@ O pacote de cloud-init configura aspectos específicos de uma nova instância.
 O arquivo de log de saída de cloud-init (/var/log/cloud-init-output.log) captura a saída do console para facilitar a depuração de seus scripts após uma execução se a instância não se comportar da maneira desejada.
 
 Quando um script de dados do usuário é processado, ele é copiado para /var/lib/cloud/instances/instance-id/ e executado a partir desse diretório.
+<br>
+4) Comandos linux para verificar a utilização de componentes (ex: memória, cpu e disco) 
+
+<ul>Utilização de cpu
+> htop
+
+<ul>Utilização de memória
+> free -mh
+
+<ul>Espaço em disco
+> df -h
+
+<ul>Pastas que ocupam mais espaços na raiz /
+> sudo du -cha --max-depth=1 / | grep -E "M|G"
 
 Fontes:
 
