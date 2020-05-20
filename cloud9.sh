@@ -9,12 +9,12 @@ EOL
 chmod +x ~/environment/ip
 
 # aumentando o disco para 20G e 
-sh resize.sh
+sh ~/environment/config-ubuntu/resize.sh
 #liberando acesso externo
 sudo apt-get -y install jq > /dev/null
 NOME_GRUPO_SEGURANCA=aws ec2 describe-security-groups | jq '.SecurityGroups[] | select(.GroupName | contains("cloud9")) | .GroupName'
 aws ec2 authorize-security-group-ingress --group-name $NOME_GRUPO_SEGURANCA --protocol tcp --port 0-65535 --cidr 0.0.0.0/0
-sh resize.sh
+sh ~/environment/config-ubuntu/resize.sh
 
 # --- DEV TOOLS
 # Instalacão do Maven Java:
