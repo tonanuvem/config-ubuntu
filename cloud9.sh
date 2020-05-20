@@ -8,6 +8,14 @@ curl checkip.amazonaws.com
 EOL
 chmod +x ~/environment/ip
 
+# aumentando o disco para 20G e 
+sh resize.sh
+#liberando acesso externo
+sudo apt-get -y install jq > /dev/null
+NOME_GRUPO_SEGURANCA=aws ec2 describe-security-groups | jq '.SecurityGroups[] | select(.GroupName | contains("cloud9")) | .GroupName'
+aws ec2 authorize-security-group-ingress --group-name $NOME_GRUPO_SEGURANCA --protocol tcp --port 0-65535 --cidr 0.0.0.0/0
+sh resize.sh
+
 # --- DEV TOOLS
 # Instalacão do Maven Java:
 export DEBIAN_FRONTEND=noninteractive
@@ -104,5 +112,9 @@ printf "\n\tKUBECTL:\n"
 kubectl version --client
 printf "\n\tHELM:\n"
 helm version -c
+printf "\n\tExibe se o disco está com 20G:\n"
+df -h | grep /dev/xvda1
+printf "\n\tExibe se o aws-cloud9-fiaplab está com firewall liberado:\n"
+aws ec2 describe-security-groups --query 'SecurityGroups[?IpPermissions[?contains(IpRanges[].CidrIp, `0.0.0.0/0`)]].{GroupName: GroupName}'                                                       
 
 source ~/.bash_profile
