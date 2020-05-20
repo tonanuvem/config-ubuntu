@@ -46,7 +46,7 @@ rm -rf aws-elastic-beanstalk-cli-setup
 # Instalação do Terraform:
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tTerraform:\n\n"
-curl -s "https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip" -o "terraform_linux_amd64.zip"
+curl -s "https://releases.hashicorp.com/terraform/0.12.25/terraform_0.12.25_linux_amd64.zip" -o "terraform_linux_amd64.zip"
 unzip terraform_linux_amd64.zip
 sudo mv terraform /usr/bin/
 rm -rf terraform_linux_amd64.zip
@@ -117,11 +117,11 @@ printf "\n\tAPLICANDO ULTIMAS CONFIGURAÇÕES:\n"
 sh ~/environment/config-ubuntu/pacotes.sh
 printf "\n\tMAVEN:\n"
 mvn -version
-printf "\n\CONFIGURANDO FIREWALL:\n"
+printf "\n\tCONFIGURANDO FIREWALL:\n"
 NOME_GRUPO_SEGURANCA=$(aws ec2 describe-security-groups | jq '.SecurityGroups[] | select(.GroupName | contains("cloud9")) | .GroupName' | tr -d \")
 aws ec2 authorize-security-group-ingress --group-name $NOME_GRUPO_SEGURANCA --protocol tcp --port 0-65535 --cidr 0.0.0.0/0
 #liberando acesso externo
-printf "\n\tEXIBE SE AMBIENTE CLOUD9 ESTÁ COM FIREWALL LIBERADO (em caso de erro, executar: \"sh ~/environment/config-ubuntu/firewall_alow.sh\:\n"
+printf "\n\tEXIBE SE AMBIENTE CLOUD9 ESTÁ COM FIREWALL LIBERADO (em caso de erro, executar: \"sh ~/environment/config-ubuntu/firewall_alow.sh\" :\n"
 aws ec2 describe-security-groups --query 'SecurityGroups[?IpPermissions[?contains(IpRanges[].CidrIp, `0.0.0.0/0`)]].{GroupName: GroupName}'                                                       
 
 source ~/.bash_profile
