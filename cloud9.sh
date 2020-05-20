@@ -1,7 +1,5 @@
 #!/bin/bash
 
-sh ~/environment/config-ubuntu/pacotes.sh
-
 # https://code.visualstudio.com/docs/remote/ssh
 
 # utils: cria script para verificar ip publico.
