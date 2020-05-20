@@ -23,7 +23,7 @@ export DEBIAN_FRONTEND=noninteractive
 #sudo apt-get update > /dev/null
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tMaven (Java):\n\n"
-sudo apt-get -y install maven > /dev/null
+#sudo apt-get -y install maven > /dev/null # nao funciona no comeco por conta internos dos scripts do cloud9
 # Instalação do SPRING:
 curl -s "https://get.sdkman.io" | bash > /dev/null
 source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -90,6 +90,7 @@ printf "\n\tJAVA:\n"
 java -version
 javac -version
 printf "\n\tMAVEN:\n"
+sudo apt-get -y install maven > /dev/null
 mvn -version
 printf "\n\tSPRING:\n"
 spring --version
