@@ -12,7 +12,7 @@ if [ -d ${install_dir} ]; then
     sudo mv ${install_dir} ${install_dir}.$(date +"%Y%m%d")
 fi
 
-mkdir ${install_dir}
+sudo mkdir ${install_dir}
 curl -fsSL ${url} | tar zx --strip-components=1 -C ${install_dir}
 
 #cat << EOF > /etc/profile.d/maven.sh
