@@ -114,7 +114,7 @@ printf "\n\tHELM:\n"
 helm version -c
 printf "\n\tExibe se o disco está com 20G:\n"
 df -h | grep /dev/xvda1
-printf "\n\tExibe se o aws-cloud9-fiaplab está com firewall liberado:\n"
+printf "\n\tExibe se o aws-cloud9-fiaplab está com firewall liberado (em caso de erro, executar: \"sh ~/environment/config-ubuntu/firewall_alow.sh\:\n"
 aws ec2 describe-security-groups --query 'SecurityGroups[?IpPermissions[?contains(IpRanges[].CidrIp, `0.0.0.0/0`)]].{GroupName: GroupName}'                                                       
 
 source ~/.bash_profile
