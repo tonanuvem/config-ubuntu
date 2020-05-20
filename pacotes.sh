@@ -2,7 +2,7 @@
 
 echo "Aguardando Cloud9 (geralmente 4 min): apt.systemd.daily update."
 while [ "$(ps aux | grep -i apt | wc -l)" != "1" ]; do
-  echo -ne "."
+  printf "."
   sleep 1
 done
 echo "Instalando pacotes."
