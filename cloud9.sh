@@ -9,9 +9,9 @@ EOL
 chmod +x ~/environment/ip
 
 # aumentando o disco para 20G e 
-sh ~/environment/config-ubuntu/resize.sh > /dev/null
+sh ~/environment/config-ubuntu/resize.sh 20 > /dev/null
 #sh ~/environment/config-ubuntu/firewall_allow.sh
-sh ~/environment/config-ubuntu/resize.sh > /dev/null
+sh ~/environment/config-ubuntu/resize.sh 20 > /dev/null
 
 # --- DEV TOOLS
 # Instalacão do Maven Java:
@@ -100,6 +100,8 @@ docker-compose --version
 printf "\n\tAWSCLI:\n"
 aws --version
 printf "\n\tElastic Beanstalker CLI:\n"
+export PATH="/home/ubuntu/.ebcli-virtual-env/executables:$PATH"
+export PATH=/home/ubuntu/.pyenv/versions/3.7.2/bin:$PATH
 eb --version
 printf "\n\tTERRAFORM:\n"
 terraform --version
