@@ -85,8 +85,8 @@ printf "\n\n\tDEV TOOLS:\n\n"
 printf "\n\tJAVA:\n"
 java -version
 javac -version
-printf "\n\tMAVEN:\n"
-mvn -version
+#printf "\n\tMAVEN:\n"
+#mvn -version
 printf "\n\tSPRING:\n"
 spring --version
 printf "\n\tPYTHON:\n"
@@ -115,6 +115,9 @@ df -h | grep /dev/xvda1
 printf "\n\tAPLICANDO ULTIMAS CONFIGURAÇÕES:\n"
 #sudo apt-get -y install jq > /dev/null
 sh ~/environment/config-ubuntu/pacotes.sh
+printf "\n\tMAVEN:\n"
+mvn -version
+printf "\n\CONFIGURANDO FIREWALL:\n"
 NOME_GRUPO_SEGURANCA=aws ec2 describe-security-groups | jq '.SecurityGroups[] | select(.GroupName | contains("cloud9")) | .GroupName'
 aws ec2 authorize-security-group-ingress --group-name $NOME_GRUPO_SEGURANCA --protocol tcp --port 0-65535 --cidr 0.0.0.0/0
 #liberando acesso externo
