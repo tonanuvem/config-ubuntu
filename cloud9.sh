@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # https://code.visualstudio.com/docs/remote/ssh
+sudo killall apt apt-get
+sudo apt-get update > /dev/null
 
 # utils: cria script para verificar ip publico.
 sudo cat >> ~/environment/ip <<EOL
