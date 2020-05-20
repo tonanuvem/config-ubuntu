@@ -1,12 +1,6 @@
 #!/bin/bash
 
 # https://code.visualstudio.com/docs/remote/ssh
-sudo killall apt apt-get
-sudo rm /var/lib/apt/lists/lock
-sudo rm /var/cache/apt/archives/lock
-sudo rm /var/lib/dpkg/lock*
-sudo dpkg --configure -a
-sudo apt-get update > /dev/null
 
 # utils: cria script para verificar ip publico.
 sudo cat >> ~/environment/ip <<EOL
@@ -17,9 +11,10 @@ chmod +x ~/environment/ip
 # aumentando o disco para 20G e 
 sh ~/environment/config-ubuntu/resize.sh > /dev/null
 #liberando acesso externo
-sudo apt-get -y install jq > /dev/null
-NOME_GRUPO_SEGURANCA=aws ec2 describe-security-groups | jq '.SecurityGroups[] | select(.GroupName | contains("cloud9")) | .GroupName'
-aws ec2 authorize-security-group-ingress --group-name $NOME_GRUPO_SEGURANCA --protocol tcp --port 0-65535 --cidr 0.0.0.0/0
+#sudo apt-get -y install jq > /dev/null
+#NOME_GRUPO_SEGURANCA=aws ec2 describe-security-groups | jq '.SecurityGroups[] | select(.GroupName | contains("cloud9")) | .GroupName'
+#aws ec2 authorize-security-group-ingress --group-name $NOME_GRUPO_SEGURANCA --protocol tcp --port 0-65535 --cidr 0.0.0.0/0
+sh ~/environment/config-ubuntu/firewall_allow.sh
 sh ~/environment/config-ubuntu/resize.sh > /dev/null
 
 # --- DEV TOOLS
