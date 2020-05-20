@@ -11,7 +11,7 @@ chmod +x ~/environment/ip
 # aumentando o disco para 20G e 
 sh ~/environment/config-ubuntu/resize.sh 20 > /dev/null
 #sh ~/environment/config-ubuntu/firewall_allow.sh
-#sh ~/environment/config-ubuntu/resize.sh 20 > /dev/null
+sh ~/environment/config-ubuntu/resize.sh 20 > /dev/null
 
 # --- DEV TOOLS
 # Instalacão do Maven Java:
@@ -35,7 +35,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 # Instalação da Elastic Beanstalk CLI
-sudo apt-get -y install build-essential zlib1g-dev libssl-dev libncurses-dev libffi-dev libsqlite3-dev libreadline-dev libbz2-dev > /dev/null
+#sudo apt-get -y install build-essential zlib1g-dev libssl-dev libncurses-dev libffi-dev libsqlite3-dev libreadline-dev libbz2-dev > /dev/null
 git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git
 # ./aws-elastic-beanstalk-cli-setup/scripts/bundled_installer
 python3 aws-elastic-beanstalk-cli-setup/scripts/ebcli_installer.py
