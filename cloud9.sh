@@ -118,7 +118,7 @@ sh ~/environment/config-ubuntu/pacotes.sh
 printf "\n\tMAVEN:\n"
 mvn -version
 printf "\n\CONFIGURANDO FIREWALL:\n"
-NOME_GRUPO_SEGURANCA=$(aws ec2 describe-security-groups | jq '.SecurityGroups[] | select(.GroupName | contains("cloud9")) | .GroupName')
+NOME_GRUPO_SEGURANCA=$(aws ec2 describe-security-groups | jq '.SecurityGroups[] | select(.GroupName | contains("cloud9")) | .GroupName' | tr -d \")
 aws ec2 authorize-security-group-ingress --group-name $NOME_GRUPO_SEGURANCA --protocol tcp --port 0-65535 --cidr 0.0.0.0/0
 #liberando acesso externo
 printf "\n\tEXIBE SE AMBIENTE CLOUD9 ESTÁ COM FIREWALL LIBERADO (em caso de erro, executar: \"sh ~/environment/config-ubuntu/firewall_alow.sh\:\n"
