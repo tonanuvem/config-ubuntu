@@ -12,11 +12,7 @@ chmod +x ~/environment/ip
 
 # aumentando o disco para 20G e 
 sh ~/environment/config-ubuntu/resize.sh > /dev/null
-#liberando acesso externo
-#sudo apt-get -y install jq > /dev/null
-#NOME_GRUPO_SEGURANCA=aws ec2 describe-security-groups | jq '.SecurityGroups[] | select(.GroupName | contains("cloud9")) | .GroupName'
-#aws ec2 authorize-security-group-ingress --group-name $NOME_GRUPO_SEGURANCA --protocol tcp --port 0-65535 --cidr 0.0.0.0/0
-sh ~/environment/config-ubuntu/firewall_allow.sh
+#sh ~/environment/config-ubuntu/firewall_allow.sh
 sh ~/environment/config-ubuntu/resize.sh > /dev/null
 
 # --- DEV TOOLS
@@ -115,9 +111,16 @@ printf "\n\tKUBECTL:\n"
 kubectl version --client
 printf "\n\tHELM:\n"
 helm version -c
-printf "\n\tExibe se o disco está com 20G:\n"
+printf "\n\tEXIBE SE DISCO = 20G:\n"
 df -h | grep /dev/xvda1
-printf "\n\tExibe se o aws-cloud9-fiaplab está com firewall liberado (em caso de erro, executar: \"sh ~/environment/config-ubuntu/firewall_alow.sh\:\n"
+#liberando acesso externo
+printf "\n\tAPLICANDO ULTIMAS CONFIGURAÇÕES:\n"
+#sudo apt-get -y install jq > /dev/null
+sh ~/environment/config-ubuntu/pacotes.sh
+NOME_GRUPO_SEGURANCA=aws ec2 describe-security-groups | jq '.SecurityGroups[] | select(.GroupName | contains("cloud9")) | .GroupName'
+aws ec2 authorize-security-group-ingress --group-name $NOME_GRUPO_SEGURANCA --protocol tcp --port 0-65535 --cidr 0.0.0.0/0
+#liberando acesso externo
+printf "\n\tEXIBE SE AMBIENTE CLOUD9 ESTÁ COM FIREWALL LIBERADO (em caso de erro, executar: \"sh ~/environment/config-ubuntu/firewall_alow.sh\:\n"
 aws ec2 describe-security-groups --query 'SecurityGroups[?IpPermissions[?contains(IpRanges[].CidrIp, `0.0.0.0/0`)]].{GroupName: GroupName}'                                                       
 
 source ~/.bash_profile
