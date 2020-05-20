@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sh ~/environment/config-ubuntu/pacotes.sh
+
 # https://code.visualstudio.com/docs/remote/ssh
 
 # utils: cria script para verificar ip publico.
@@ -90,7 +92,6 @@ printf "\n\tJAVA:\n"
 java -version
 javac -version
 printf "\n\tMAVEN:\n"
-sudo apt-get -y install maven > /dev/null
 mvn -version
 printf "\n\tSPRING:\n"
 spring --version
