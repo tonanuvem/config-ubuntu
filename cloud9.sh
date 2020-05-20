@@ -11,7 +11,7 @@ chmod +x ~/environment/ip
 # aumentando o disco para 20G e 
 sh ~/environment/config-ubuntu/resize.sh 20 > /dev/null
 #sh ~/environment/config-ubuntu/firewall_allow.sh
-sh ~/environment/config-ubuntu/resize.sh 20 > /dev/null
+#sh ~/environment/config-ubuntu/resize.sh 20 > /dev/null
 
 # --- DEV TOOLS
 # Instalacão do Maven Java:
@@ -120,8 +120,15 @@ sh ~/environment/config-ubuntu/pacotes.sh
 printf "\n\tMAVEN:\n"
 mvn -version
 printf "\n\tCONFIGURANDO FIREWALL:\n"
-NOME_GRUPO_SEGURANCA=$(aws ec2 describe-security-groups | jq '.SecurityGroups[] | select(.GroupName | contains("cloud9")) | .GroupName' | tr -d \")
-aws ec2 authorize-security-group-ingress --group-name $NOME_GRUPO_SEGURANCA --protocol tcp --port 0-65535 --cidr 0.0.0.0/0
+if [ $(aws ec2 describe-security-groups | jq '.SecurityGroups[] | select(.GroupName | contains("cloud9")) | .GroupName' | wc -l) = "1" ]
+then
+  # liberar firewall automaticamente se só existe 1 security group
+  NOME_GRUPO_SEGURANCA=$(aws ec2 describe-security-groups | jq '.SecurityGroups[] | select(.GroupName | contains("cloud9")) | .GroupName' | tr -d \")
+  aws ec2 authorize-security-group-ingress --group-name $NOME_GRUPO_SEGURANCA --protocol tcp --port 0-65535 --cidr 0.0.0.0/0
+else
+  # escolher manualmente dentre os securty groups existentes
+  sh ~/environment/config-ubuntu/firewall_allow.sh
+fi
 #liberando acesso externo
 printf "\n\tEXIBE SE AMBIENTE CLOUD9 ESTÁ COM FIREWALL LIBERADO (em caso de erro, executar: \"sh ~/environment/config-ubuntu/firewall_alow.sh\") :\n"
 aws ec2 describe-security-groups --query 'SecurityGroups[?IpPermissions[?contains(IpRanges[].CidrIp, `0.0.0.0/0`)]].{GroupName: GroupName}'                                                       
