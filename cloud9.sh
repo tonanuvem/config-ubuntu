@@ -4,7 +4,7 @@
 
 # utils: cria script para verificar ip publico.
 sudo cat >> ~/environment/ip <<EOL
-curl checkip.amazonaws.com
+aws ec2 describe-instances --query "Reservations[*].Instances[*].[PublicIpAddress, Tags[?Key=='Name'].Value|[0]]" --output text
 EOL
 chmod +x ~/environment/ip
 
