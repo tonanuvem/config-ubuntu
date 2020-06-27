@@ -5,7 +5,7 @@ variable "instance_type" {
 
 variable "ec2_name" {
   type        = string
-  default     = "fiap_vm_4cpus_16gb"
+  default     = "fiap_vm_xlarge_4cpus_16gb"
 }
 
 variable "key_name" {
