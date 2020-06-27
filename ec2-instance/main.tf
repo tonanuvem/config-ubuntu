@@ -87,7 +87,7 @@ resource "aws_instance" "web" {
   
   # Define o nome da VM
   tags = {
-    Name = "fiap vm : ec2-instance"
+    Name = var.ec2_name
   }  
   
   # Define tipo da VM (CPU e Memoria)
