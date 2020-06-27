@@ -3,6 +3,11 @@ variable "instance_type" {
   default     = "t2.xlarge" # 4	CPUs e 16 GB
 }
 
+variable "ec2_name" {
+  type        = string
+  default     = "fiap_vm_4cpus_16gb"
+}
+
 variable "key_name" {
   type        = string
   default     = "chave-fiap"
