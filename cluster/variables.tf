@@ -1,9 +1,19 @@
 variable "hostname" {
   type = map
   default = {
-    master   = "master"
+    # master   = "master"
     node1    = "node1"
     node2    = "node2"
+    node3    = "node3"   
+  }
+}
+
+variable "ec2_name" {
+  type = map
+  default = {
+    node1     = "clusterfiap_node1_medium_2cpus_4gb"
+    node2     = "clusterfiap_node2_medium_2cpus_4gb"
+    node3     = "clusterfiap_node3_medium_2cpus_4gb"
   }
 }
 
