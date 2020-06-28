@@ -132,7 +132,7 @@ resource "aws_instance" "master" {
   key_name  = var.key_name
   # Define o nome da VM
   tags = {
-    Name = "fiap cluster : master"
+    Name = lookup("node1", var.ec2_name)
   } 
   
   # Define tipo da VM (CPU e Memoria)
