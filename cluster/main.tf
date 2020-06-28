@@ -132,7 +132,7 @@ resource "aws_instance" "master" {
   key_name  = var.key_name
   # Define o nome da VM
   tags = {
-    Name = lookup("node1", var.ec2_name)
+    Name = lookup(var.ec2_name, "node1")
   } 
   
   # Define tipo da VM (CPU e Memoria)
