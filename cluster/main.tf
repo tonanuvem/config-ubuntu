@@ -122,7 +122,7 @@ data "template_cloudinit_config" "config_node2" {
   }
 }
 
-resource "aws_instance" "master" {  
+resource "aws_instance" "node1" {  
   # Define o script de inicialização do EC2:
   # user_data = data.template_file.init.rendered
   #user_data = data.template_cloudinit_config.config_master.rendered
@@ -151,7 +151,7 @@ resource "aws_instance" "master" {
   subnet_id = aws_subnet.default.id
 }
 
-resource "aws_instance" "node1" {  
+resource "aws_instance" "node2" {  
   # Define o script de inicialização do EC2:
   #user_data = data.template_cloudinit_config.config_node1.rendered
   user_data = data.template_file.init.rendered
@@ -160,7 +160,7 @@ resource "aws_instance" "node1" {
   key_name  = var.key_name
   # Define o nome da VM
   tags = {
-    Name = "fiap cluster : node 1"
+    Name = lookup(var.ec2_name, "node2")
   } 
   
   # Define tipo da VM (CPU e Memoria)
@@ -179,7 +179,7 @@ resource "aws_instance" "node1" {
   subnet_id = aws_subnet.default.id
 }
 
-resource "aws_instance" "node2" {  
+resource "aws_instance" "node3" {  
   # Define o script de inicialização do EC2:
   user_data = data.template_file.init.rendered
   
@@ -187,7 +187,7 @@ resource "aws_instance" "node2" {
   key_name  = var.key_name
   # Define o nome da VM
   tags = {
-    Name = "fiap cluster : node 2"
+    Name = lookup(var.ec2_name, "node3")
   } 
   
   # Define tipo da VM (CPU e Memoria)
