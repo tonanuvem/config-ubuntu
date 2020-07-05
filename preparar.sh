@@ -56,6 +56,7 @@ sudo apt-get install -y python3-pip > /dev/null
 python3 -m pip install --upgrade --force-reinstall pip
 sudo apt-get install -y python3-venv > /dev/null
 pip3 install --upgrade pip
+sudo ln -s /usr/bin/python3 /usr/bin/python
 
 # --- OPS TOOLS
 # Instalação do Docker
@@ -78,6 +79,7 @@ printf "\n\n\tAWS CLI e SSH:\n\n"
 curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip -q awscliv2.zip
 sudo ./aws/install
+sudo apt-get -y install jq > /dev/null
 
 # Criar arquivo vazio das credenciais da AWS:
 mkdir ~/.aws
