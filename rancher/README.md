@@ -12,6 +12,7 @@ Deploy
 <br>
 
 > terraform apply
+<br>
 
 Kubernetes configurations will also be generated:
 
@@ -19,6 +20,7 @@ Kubernetes configurations will also be generated:
 <br>
 
 > kube_config_workload.yaml contains credentials to access the provisioned workload cluster
+<br>
 
 Remover
 
