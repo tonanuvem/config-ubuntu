@@ -55,7 +55,7 @@ resource "aws_instance" "rancher_server" {
   security_groups = [aws_security_group.rancher_sg_allowall.name]
 
   user_data = templatefile(
-    join("/", [path.module, "../cloud-common/files/userdata_rancher_server.template"]),
+    join("/", [path.module, "./files/userdata_rancher_server.template"]),
     {
       docker_version = var.docker_version
       username       = local.node_username
