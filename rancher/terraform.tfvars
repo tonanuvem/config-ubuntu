@@ -3,10 +3,10 @@
 # ==========================================================
 
 # AWS Access Key
-aws_access_key = ""
+#aws_access_key = ""
 
 # AWS Secret Key
-aws_secret_key = ""
+#aws_secret_key = ""
 
 # Password used to log in to the `admin` account on the new Rancher server
 rancher_server_admin_password = "fiap"
@@ -16,13 +16,13 @@ rancher_server_admin_password = "fiap"
 # ----------------------------------------------------------
 
 # AWS region for all resources
-# aws_region = ""
+aws_region = "us-east-1"
 
 # Prefix for all resources created by quickstart
-# prefix = ""
+prefix = "fiap"
 
 # EC2 instance size of all created instances
-# instance_type = ""
+instance_type = "t2.medium"
 
 # Docker version installed on target hosts
 # - Must be a version supported by the Rancher install scripts
