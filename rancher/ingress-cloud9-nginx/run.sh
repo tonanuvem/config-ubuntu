@@ -1,6 +1,8 @@
 #!/bin/bash
 
+# Existem varias opcoes de LoadBalancer. Nesse LAB, usaremos NGINX pela simplicidade.
 # https://rancher.com/docs/rancher/v2.x/en/installation/options/nginx/
+# https://rancher.com/docs/rancher/v2.x/en/installation/options/nlb/
 
 ../terraform output > ./output.txt
 
