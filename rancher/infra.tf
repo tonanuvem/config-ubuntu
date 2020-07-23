@@ -108,7 +108,7 @@ module "rancher_common" {
   workload_cluster_name       = "fiap-cluster"
 }
 
-# AWS EC2 instance for creating a single node workload cluster
+# AWS EC2 instance for creating a node workload cluster
 resource "aws_instance" "quickstart_node" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
@@ -146,7 +146,7 @@ resource "aws_instance" "quickstart_node" {
   }
 }
 
-  # AWS EC2 instance for creating a single node workload cluster
+  # AWS EC2 instance for creating a single workload cluster
 resource "aws_instance" "quickstart_node_2" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
@@ -180,6 +180,44 @@ resource "aws_instance" "quickstart_node_2" {
 
   tags = {
     Name    = "${var.prefix}-rancher-node-2"
+    Creator = "rancher-fiap"
+  }
+}
+
+    # AWS EC2 instance for creating a node workload cluster
+resource "aws_instance" "quickstart_node_3" {
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = var.instance_type
+
+  key_name        = aws_key_pair.quickstart_key_pair.key_name
+  security_groups = [aws_security_group.rancher_sg_allowall.name]
+
+  user_data = templatefile(
+    join("/", [path.module, "files/userdata_quickstart_node.template"]),
+    {
+      docker_version   = var.docker_version
+      username         = local.node_username
+      register_command = module.rancher_common.custom_cluster_command
+    }
+  )
+
+  provisioner "remote-exec" {
+    inline = [
+      "echo 'Waiting for cloud-init to complete...'",
+      "cloud-init status --wait > /dev/null",
+      "echo 'Completed cloud-init!'",
+    ]
+
+    connection {
+      type        = "ssh"
+      host        = self.public_ip
+      user        = local.node_username
+      private_key = tls_private_key.global_key.private_key_pem
+    }
+  }
+
+  tags = {
+    Name    = "${var.prefix}-rancher-node-3"
     Creator = "rancher-fiap"
   }
 }
