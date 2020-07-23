@@ -11,7 +11,7 @@ Deploy
 > terraform init
 <br>
 
-> terraform apply
+> terraform apply -auto-approve
 <br>
 
 Kubernetes configurations will also be generated:
