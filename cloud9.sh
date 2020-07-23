@@ -55,9 +55,9 @@ rm -rf terraform_linux_amd64.zip
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tK8S:\n\n"
 # minikube
-curl -s -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-chmod +x minikube 
-sudo mv minikube /usr/bin/
+# curl -s -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+# chmod +x minikube 
+# sudo mv minikube /usr/bin/
 # Variavel abaixo evita que precise executar " pelo usuario ubuntu
 # sudo chown -R $USER $HOME/.kube $HOME/.minikube
 #sudo cat >> /etc/environment <<EOL
@@ -105,8 +105,8 @@ export PATH=/home/ubuntu/.pyenv/versions/3.7.2/bin:$PATH
 eb --version
 printf "\n\tTERRAFORM:\n"
 terraform --version
-printf "\n\tMINIKUBE:\n"
-minikube version
+# printf "\n\tMINIKUBE:\n"
+# minikube version
 printf "\n\tKUBECTL:\n"
 kubectl version --client
 printf "\n\tHELM:\n"
