@@ -10,13 +10,12 @@ mv ./terraform-provider-rke_v1.0.1 ~/.terraform.d/plugins/linux_amd64/terraform-
 rm -rf ./terraform-provider-rke_*
 
 # atualizando as credenciais da AWS
-
-ACCESS=$(cat ~/.aws/credentials | grep aws_access_key)
-SECRET=$(cat ~/.aws/credentials | grep aws_secret_access_key) 
-sed -i 's|aws_access_key = ""|'$ACCESS'|' terraform.tfvars
-sed -i 's|aws_secret_key = ""|'$SECRET'|' terraform.tfvars
+#ACCESS=$(cat ~/.aws/credentials | grep aws_access_key)
+#SECRET=$(cat ~/.aws/credentials | grep aws_secret_access_key) 
+#sed -i 's|aws_access_key = ""|'$ACCESS'|' terraform.tfvars
+#sed -i 's|aws_secret_key = ""|'$SECRET'|' terraform.tfvars
 
 # atualizando outras variaveis
-sed -i 's|# aws_region = ""|aws_region = "us-east-1"|' terraform.tfvars
-sed -i 's|# instance_type = ""|instance_type = "t2.medium"|' terraform.tfvars
-sed -i 's|# prefix = ""|prefix = "fiap"|' terraform.tfvars
+#sed -i 's|# aws_region = ""|aws_region = "us-east-1"|' terraform.tfvars
+#sed -i 's|# instance_type = ""|instance_type = "t2.medium"|' terraform.tfvars
+#sed -i 's|# prefix = ""|prefix = "fiap"|' terraform.tfvars
