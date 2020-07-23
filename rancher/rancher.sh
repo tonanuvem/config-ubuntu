@@ -15,3 +15,8 @@ ACCESS=$(cat ~/.aws/credentials | grep aws_access_key)
 SECRET=$(cat ~/.aws/credentials | grep aws_secret_access_key) 
 sed -i 's|aws_access_key = ""|'$ACCESS'|' terraform.tfvars
 sed -i 's|aws_secret_key = ""|'$SECRET'|' terraform.tfvars
+
+# atualizando outras variaveis
+sed -i 's|# aws_region = ""|aws_region = "us-east1"|' terraform.tfvars
+sed -i 's|# instance_type = ""|instance_type = "t2.medium"|' terraform.tfvars
+sed -i 's|# prefix = ""|prefix = "fiap"|' terraform.tfvars
