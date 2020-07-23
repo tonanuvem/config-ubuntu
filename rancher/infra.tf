@@ -25,7 +25,7 @@ resource "aws_key_pair" "quickstart_key_pair" {
 # Security group to allow all traffic
 resource "aws_security_group" "rancher_sg_allowall" {
   name        = "${var.prefix}-rancher-allowall"
-  description = "Rancher quickstart - allow all traffic"
+  description = "Rancher fiap - allow all traffic"
 
   ingress {
     from_port   = "0"
@@ -42,7 +42,7 @@ resource "aws_security_group" "rancher_sg_allowall" {
   }
 
   tags = {
-    Creator = "rancher-quickstart"
+    Creator = "rancher-fiap"
   }
 }
 
@@ -83,7 +83,7 @@ resource "aws_instance" "rancher_server" {
 
   tags = {
     Name    = "${var.prefix}-rancher-server"
-    Creator = "rancher-quickstart"
+    Creator = "rancher-fiap"
   }
 }
 
@@ -105,7 +105,7 @@ module "rancher_common" {
   admin_password     = var.rancher_server_admin_password
 
   workload_kubernetes_version = var.workload_kubernetes_version
-  workload_cluster_name       = "quickstart-aws-custom"
+  workload_cluster_name       = "fiap"
 }
 
 # AWS EC2 instance for creating a single node workload cluster
@@ -141,7 +141,7 @@ resource "aws_instance" "quickstart_node" {
   }
 
   tags = {
-    Name    = "${var.prefix}-quickstart-node"
-    Creator = "rancher-quickstart"
+    Name    = "${var.prefix}-rancher-node"
+    Creator = "rancher-fiap"
   }
 }
