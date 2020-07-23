@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Instalação do Docker
+printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
+printf "\n\n\tDocker:\n\n"
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+# sudo gpasswd -a $USER docker
+sudo gpasswd -a ubuntu docker
+
 # Diretorio escolhido para salvar os pacotes baixados
 cd /usr/local/src/
 # utils: cria script para verificar ip publico.
@@ -59,13 +67,6 @@ pip3 install --upgrade pip
 sudo ln -s /usr/bin/python3 /usr/bin/python
 
 # --- OPS TOOLS
-# Instalação do Docker
-printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
-printf "\n\n\tDocker:\n\n"
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-# sudo gpasswd -a $USER docker
-sudo gpasswd -a ubuntu docker
 
 # Instalar o docker-compose
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
@@ -92,7 +93,7 @@ sudo service ssh restart
 # Instalação do Terraform:
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tTerraform:\n\n"
-curl -s "https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip" -o "terraform_linux_amd64.zip"
+curl -s "https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.29_linux_amd64.zip" -o "terraform_linux_amd64.zip"
 unzip terraform_linux_amd64.zip
 sudo mv terraform /usr/bin/
 #cd ~/terraform/
