@@ -89,7 +89,7 @@ resource "aws_instance" "rancher_server" {
 
 # Rancher resources
 module "rancher_common" {
-  source = "../rancher-common"
+  source = "rancher-common"
 
   node_public_ip         = aws_instance.rancher_server.public_ip
   node_internal_ip       = aws_instance.rancher_server.private_ip
