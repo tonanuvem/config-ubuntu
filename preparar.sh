@@ -16,7 +16,8 @@ curl checkip.amazonaws.com
 EOL
 chmod +x /home/ubuntu/ip
 ln -s /var/log/cloud-init-output.log /home/ubuntu/init.log
-ln -s /var/lib/cloud/instances/ /home/ubuntu/scripts_init/
+mkdir /home/ubuntu/.scripts_init/
+ln -s /var/lib/cloud/instances/ /home/ubuntu/.scripts_init/
 
 # --- DEV TOOLS
 # Instalacão do Java:
