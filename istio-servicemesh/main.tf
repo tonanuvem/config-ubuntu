@@ -93,9 +93,9 @@ resource "aws_instance" "web" {
   # Define tipo da VM (CPU e Memoria)
   instance_type = var.instance_type
 
-  # Criar um disco com 30 GB
+  # Criar um disco com 60 GB
   root_block_device {
-    volume_size = 30
+    volume_size = 60
   }
   
   # Versão do Sistema Operacional (Ubuntu)
