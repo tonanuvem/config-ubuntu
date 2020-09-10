@@ -95,7 +95,7 @@ resource "aws_instance" "web" {
 
   # Criar um disco com 30 GB
   root_block_device {
-    volume_size = 30
+    volume_size = var.volume_size
   }
   
   # Versão do Sistema Operacional (Ubuntu)
