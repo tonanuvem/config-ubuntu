@@ -141,7 +141,7 @@ sudo mv linux-amd64/helm /usr/local/bin/helm
 #tar -zxvf linux-amd64-1.1.0.tar.gz 
 #chmod +x linux-amd64-1.1.0/ccat
 #sudo mv linux-amd64-1.1.0/ccat /usr/local/bin/ccat
-#echo "alias cat='/usr/local/bin/ccat --bg=dark'" >> /etc/profile
+#sudo echo "alias cat='/usr/local/bin/ccat --bg=dark'" >> /etc/profile
 
 # Verificando as versões instaladas e atualizar permissão docker:
 cd ~
