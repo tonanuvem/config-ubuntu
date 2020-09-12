@@ -137,9 +137,10 @@ tar -zxvf helm-linux-amd64.tar.gz
 sudo mv linux-amd64/helm /usr/local/bin/helm
 
 # --- UTILS
-curl -s https://github.com/jingweno/ccat/releases/download/v1.1.0/linux-amd64-1.1.0.tar.gz -o ccat.tar.gz
-tar -zxvf ccat.tar.gz && chmod +x ccat/ccat
-sudo mv ccat/ccat /usr/local/bin/ccat
+curl -s https://github.com/jingweno/ccat/releases/download/v1.1.0/linux-amd64-1.1.0.tar.gz
+tar xfz linux-amd64-1.1.0.tar.gz 
+chmod +x linux-amd64-1.1.0/ccat
+sudo mv linux-amd64-1.1.0/ccat /usr/local/bin/ccat
 echo "alias cat='/usr/local/bin/ccat --bg=dark'" >> /etc/profile
 
 # Verificando as versões instaladas e atualizar permissão docker:
