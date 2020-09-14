@@ -29,6 +29,9 @@ Quando um script de dados do usuário é processado, ele é copiado para /var/li
 ---
 4) Comandos linux para verificar a utilização de componentes (ex: memória, cpu e disco) 
 
+Habilitar ccat
+> alias cat='/usr/local/bin/ccat --bg=dark'
+
 Utilização de cpu
 > htop
 
