@@ -70,7 +70,7 @@ data "template_file" "init" {
 }
 
 resource "aws_instance" "web" {
-  count = 4 # create four similar EC2 instances
+  count = var.quantidade # create similar EC2 instances
   
   # The connection block tells our provisioner how to
   # communicate with the resource (instance)
