@@ -3,6 +3,11 @@ variable "instance_type" {
   default     = "t2.medium"
 }
 
+variable "quantidade" {
+  type        = number
+  default     = "4"
+}
+
 variable "ec2_name" {
   type        = string
   default     = "fiap_vm_medium_2cpus_4gb"
