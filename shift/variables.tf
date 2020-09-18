@@ -8,6 +8,11 @@ variable "quantidade" {
   default     = "4"
 }
 
+variable "tamanho_disco" {
+  type        = number
+  default     = "30"
+}
+
 variable "ec2_name" {
   type        = string
   default     = "fiap_vm_medium_2cpus_4gb"
