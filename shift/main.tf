@@ -97,7 +97,13 @@ resource "aws_instance" "web" {
 
   # Criar um disco com 30 GB
   root_block_device {
-    volume_size = 30
+    volume_size = var.tamanho_disco
+  }
+  
+  # Volume Elastic Block Service: EBS volumes (remote storage devices)
+  ebs_block_device {
+    device_name = "${format("%s_%d_%s", "disco_ebs", count.index+1, var.ec2_name)}"
+    volume_size = var.tamanho_disco
   }
   
   # Versão do Sistema Operacional (Ubuntu)
