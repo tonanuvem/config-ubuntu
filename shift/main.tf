@@ -102,7 +102,7 @@ resource "aws_instance" "web" {
   
   # Volume Elastic Block Service: EBS volumes (remote storage devices)
   ebs_block_device {
-    device_name = "${format("%s_%d_%s", "disco_ebs", count.index+1, var.ec2_name)}"
+    device_name = "/dev/xvdb"
     volume_size = var.tamanho_disco
   }
   
