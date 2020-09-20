@@ -2,6 +2,13 @@
 
 # https://code.visualstudio.com/docs/remote/ssh
 
+# utils: desabilita SSH host key checking
+sudo cat >> ~/.ssh/config <<EOL
+Host *
+   StrictHostKeyChecking no
+   UserKnownHostsFile=/dev/null
+EOL
+
 # utils: cria script para verificar ip publico.
 sudo cat >> ~/environment/ip <<EOL
 aws ec2 describe-instances --query "Reservations[*].Instances[*].[PublicIpAddress, Tags[?Key=='Name'].Value|[0]]" --output text
