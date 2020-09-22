@@ -21,12 +21,15 @@ ln -s /var/lib/cloud/instances/ /home/ubuntu/.scripts_init/
 
 
 # --- UTILS
+printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
+printf "\n\n\tCCAT:\n\n"
 wget https://github.com/jingweno/ccat/releases/download/v1.1.0/linux-amd64-1.1.0.tar.gz
 tar -zxvf linux-amd64-1.1.0.tar.gz 
 chmod +x linux-amd64-1.1.0/ccat
 sudo mv linux-amd64-1.1.0/ccat /usr/local/bin/ccat
 sudo echo "alias cat='/usr/local/bin/ccat --bg=dark'" >> /etc/profile
-# unzip
+printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
+printf "\n\n\tUNZIP:\n\n"
 export DEBIAN_FRONTEND=noninteractive
 sudo apt-get update > /dev/null
 sudo apt-get install unzip
