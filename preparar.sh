@@ -19,53 +19,18 @@ ln -s /var/log/cloud-init-output.log /home/ubuntu/init.log
 mkdir /home/ubuntu/.scripts_init/
 ln -s /var/lib/cloud/instances/ /home/ubuntu/.scripts_init/
 
-# --- DEV TOOLS
-# Instalacão do Java:
+
+# --- UTILS
+wget https://github.com/jingweno/ccat/releases/download/v1.1.0/linux-amd64-1.1.0.tar.gz
+tar -zxvf linux-amd64-1.1.0.tar.gz 
+chmod +x linux-amd64-1.1.0/ccat
+sudo mv linux-amd64-1.1.0/ccat /usr/local/bin/ccat
+sudo echo "alias cat='/usr/local/bin/ccat --bg=dark'" >> /etc/profile
+# unzip
 export DEBIAN_FRONTEND=noninteractive
 sudo apt-get update > /dev/null
 sudo apt-get install unzip
-printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
-printf "\n\n\tJava:\n\n"
-sudo apt-get -y install default-jre > /dev/null
-sudo apt-get -y install default-jdk > /dev/null
-sudo apt-get -y install maven > /dev/null
-sudo update-alternatives --config java
-sudo update-alternatives --config javac
-# adiciona as variaveis do java em /etc/environment
-sudo cat >> /etc/environment <<EOL
-export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
-export JRE_HOME="/usr/lib/jvm/java-11-openjdk-amd64/jre"
-export SONAR_SCANNER_OPTS="-Xmx512m"
-EOL
-#source /etc/environment
 
-#Chrome, ChromeDriver e Selenium
-sudo apt-get install -y xvfb libxi6 libgconf-2-4 > /dev/null
-sudo apt -y --fix-broken install
-sudo curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
-sudo echo "deb [arch=amd64]  http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
-sudo apt-get -y update > /dev/null
-sudo apt-get -y install google-chrome-stable=81.0.4044.92-1 > /dev/null
-apt-cache policy google-chrome-stable
-curl -s https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip -o chromedriver_linux64.zip
-#curl -s https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_linux64.zip -o chromedriver_linux64.zip
-unzip chromedriver_linux64.zip
-sudo mv chromedriver /usr/bin/chromedriver
-#sudo chown root:root /usr/bin/chromedriver
-sudo chmod +x /usr/bin/chromedriver
-# configs da tela: https://stackoverflow.com/questions/54391665/java-run-chromedriver-with-selenium-on-ubuntu-server
-#Xvfb -ac :99 -screen 0 1280x1024x16 &
-#export DISPLAY=:99
-
-# Instalação do Python:
-printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
-printf "\n\n\tPython:\n\n"
-sudo add-apt-repository universe
-sudo apt-get install -y python3-pip > /dev/null
-python3 -m pip install --upgrade --force-reinstall pip
-sudo apt-get install -y python3-venv > /dev/null
-pip3 install --upgrade pip
-sudo ln -s /usr/bin/python3 /usr/bin/python
 
 # --- OPS TOOLS
 
@@ -136,12 +101,52 @@ curl -s https://get.helm.sh/helm-v3.1.2-linux-amd64.tar.gz -o helm-linux-amd64.t
 tar -zxvf helm-linux-amd64.tar.gz
 sudo mv linux-amd64/helm /usr/local/bin/helm
 
-# --- UTILS
-wget https://github.com/jingweno/ccat/releases/download/v1.1.0/linux-amd64-1.1.0.tar.gz
-tar -zxvf linux-amd64-1.1.0.tar.gz 
-chmod +x linux-amd64-1.1.0/ccat
-sudo mv linux-amd64-1.1.0/ccat /usr/local/bin/ccat
-sudo echo "alias cat='/usr/local/bin/ccat --bg=dark'" >> /etc/profile
+
+# --- DEV TOOLS
+# Instalacão do Java:
+printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
+printf "\n\n\tJava:\n\n"
+sudo apt-get -y install default-jre > /dev/null
+sudo apt-get -y install default-jdk > /dev/null
+sudo apt-get -y install maven > /dev/null
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
+# adiciona as variaveis do java em /etc/environment
+sudo cat >> /etc/environment <<EOL
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+export JRE_HOME="/usr/lib/jvm/java-11-openjdk-amd64/jre"
+export SONAR_SCANNER_OPTS="-Xmx512m"
+EOL
+#source /etc/environment
+
+#Chrome, ChromeDriver e Selenium
+sudo apt-get install -y xvfb libxi6 libgconf-2-4 > /dev/null
+sudo apt -y --fix-broken install
+sudo curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
+sudo echo "deb [arch=amd64]  http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
+sudo apt-get -y update > /dev/null
+sudo apt-get -y install google-chrome-stable=81.0.4044.92-1 > /dev/null
+apt-cache policy google-chrome-stable
+curl -s https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip -o chromedriver_linux64.zip
+#curl -s https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_linux64.zip -o chromedriver_linux64.zip
+unzip chromedriver_linux64.zip
+sudo mv chromedriver /usr/bin/chromedriver
+#sudo chown root:root /usr/bin/chromedriver
+sudo chmod +x /usr/bin/chromedriver
+# configs da tela: https://stackoverflow.com/questions/54391665/java-run-chromedriver-with-selenium-on-ubuntu-server
+#Xvfb -ac :99 -screen 0 1280x1024x16 &
+#export DISPLAY=:99
+
+# Instalação do Python:
+printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
+printf "\n\n\tPython:\n\n"
+sudo add-apt-repository universe
+sudo apt-get install -y python3-pip > /dev/null
+python3 -m pip install --upgrade --force-reinstall pip
+sudo apt-get install -y python3-venv > /dev/null
+pip3 install --upgrade pip
+sudo ln -s /usr/bin/python3 /usr/bin/python
+
 
 # Verificando as versões instaladas e atualizar permissão docker:
 cd ~
