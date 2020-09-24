@@ -11,8 +11,8 @@ EOL
 
 # utils: cria script para verificar ip publico.
 sudo cat >> ~/environment/ip <<EOL
-aws ec2 describe-instances --query "Reservations[*].Instances[*].[PublicIpAddress, Tags[?Key=='Name'].Value|[0]]" --output text
-#aws ec2 describe-instances --query "Reservations[*].Instances[*].[PublicIpAddress, Tags[?Key=='Name'].Value|[0]]" --output text | awk -Fv '{ if ( !($1 ~  "None") ) { print } }'
+#aws ec2 describe-instances --query "Reservations[*].Instances[*].[PublicIpAddress, Tags[?Key=='Name'].Value|[0]]" --output text
+aws ec2 describe-instances --query "Reservations[*].Instances[*].[PublicIpAddress, Tags[?Key=='Name'].Value|[0]]" --output text | awk -Fv '{ if ( !(\$1 ~  "None") ) { print } }'
 EOL
 chmod +x ~/environment/ip
 
