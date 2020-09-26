@@ -29,7 +29,7 @@ resource "aws_security_group" "eksfiap" {
   }
 }
 
-resource "aws_eks_cluster" "demo" {
+resource "aws_eks_cluster" "eksfiap" {
   name     = var.cluster-name
   role_arn = "arn:aws:iam::304686002466:role/eksFiapClusterRole"
 
