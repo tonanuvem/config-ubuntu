@@ -8,7 +8,7 @@
 
 resource "aws_vpc" "demo" {
   cidr_block = "10.5.0.0/16"
-
+  enable_dns_hostnames = true
   tags = map(
     "Name", "eksfiap-node",
     "kubernetes.io/cluster/${var.cluster-name}", "shared",
