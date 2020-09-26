@@ -7,6 +7,6 @@ aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerN
 aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy --role-name eksFiapWoker
 aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly --role-name eksFiapWoker
 
+aws sts get-caller-identity
 
-
-aws eks --region us-east-1 update-kubeconfig --name eksfiap
+aws eks --region us-east-1 update-kubeconfig --name eksfia
