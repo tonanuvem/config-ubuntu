@@ -50,9 +50,7 @@ resource "aws_route_table" "demo" {
 
 resource "aws_route_table_association" "demo" {
   count = 2
-  tags = {
-    Name = "eksfiap"
-  }
+
   subnet_id      = aws_subnet.demo.*.id[count.index]
   route_table_id = aws_route_table.demo.id
 }
