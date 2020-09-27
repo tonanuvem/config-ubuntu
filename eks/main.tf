@@ -45,7 +45,7 @@ resource "aws_internet_gateway" "demo" {
   vpc_id = aws_vpc.demo.id
 
   tags = {
-    name = "eksfiap"
+    Name = var.cluster-name
   }
 }
 
@@ -94,7 +94,7 @@ resource "aws_security_group" "eksfiap" {
   }
 
   tags = {
-    name = "eksfiap"
+    Name = var.cluster-name
   }
 }
 
@@ -121,7 +121,7 @@ resource "aws_eks_node_group" "demo" {
   node_role_arn   = "arn:aws:iam::497573848553:role/eksFiapWorker"
   subnet_ids      = aws_subnet.demo[*].id
   tags = {
-    name = "eksfiap-workers"
+    Name = "eksfiap-workers"
   }
   remote_access {
     ec2_ssh_key = "chave-fiap"
