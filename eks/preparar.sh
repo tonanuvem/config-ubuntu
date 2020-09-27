@@ -12,4 +12,4 @@ echo $ACCOUNT
 sed -i 's|497573848553|'$ACCOUNT'|' eks-cluster.tf
 sed -i 's|497573848553|'$ACCOUNT'|' eks-worker-nodes.tf
 
-aws eks --region us-east-1 update-kubeconfig --name eksfia
+aws eks --region us-east-1 update-kubeconfig --name eksfiap
