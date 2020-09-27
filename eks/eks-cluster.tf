@@ -25,7 +25,7 @@ resource "aws_security_group" "eksfiap" {
   }
 
   tags = {
-    Name = "terraform-eks-demo"
+    Name = "eksfiap"
   }
 }
 
