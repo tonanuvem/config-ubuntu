@@ -20,7 +20,7 @@ data "aws_availability_zones" "available" {}
 
 resource "aws_vpc" "demo" {
   cidr_block = "10.5.0.0/16"
-  enable_dns_hostnames = true
+#  enable_dns_hostnames = true
   tags = map(
     "name", "eksfiap",
     "kubernetes.io/cluster/${var.cluster-name}", "shared",
