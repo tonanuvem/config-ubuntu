@@ -12,4 +12,8 @@ echo $ACCOUNT
 sed -i 's|497573848553|'$ACCOUNT'|' eks-cluster.tf
 sed -i 's|497573848553|'$ACCOUNT'|' eks-worker-nodes.tf
 
+terraform init
+terraform plan
+terraform apply -auto-approve
+
 aws eks --region us-east-1 update-kubeconfig --name eksfiap
