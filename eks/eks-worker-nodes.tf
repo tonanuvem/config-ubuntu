@@ -9,7 +9,9 @@ resource "aws_eks_node_group" "demo" {
   node_group_name = "demo"
   node_role_arn   = "arn:aws:iam::497573848553:role/eksFiapWorker"
   subnet_ids      = aws_subnet.demo[*].id
-
+  tags = {
+    Name = "eksfiap"
+  }
   scaling_config {
     desired_size = 2
     max_size     = 3
