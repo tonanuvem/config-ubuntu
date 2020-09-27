@@ -1,3 +1,6 @@
+echo "Verificando as credenciais AWS (~/.aws/credentials) :"
+aws sts get-caller-identity
+
 aws iam create-role --role-name eksFiapClusterRole
 aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKSClusterPolicy --role-name eksFiapClusterRole
 
