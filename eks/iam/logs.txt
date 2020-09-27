@@ -1,0 +1,53 @@
+{
+    "UserId": "AROA3NRP2GO7BXUZPLDBB:user639528=contato@tonanuvem.net",
+    "Account": "785005556670",
+    "Arn": "arn:aws:sts::785005556670:assumed-role/vocstartsoft/user639528=contato@tonanuvem.net"
+}
+{
+    "Role": {
+        "Path": "/",
+        "RoleName": "eksFiapClusterRole",
+        "RoleId": "AROA3NRP2GO7CT6QY5A7K",
+        "Arn": "arn:aws:iam::785005556670:role/eksFiapClusterRole",
+        "CreateDate": "2020-09-27T13:42:10Z",
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "eks.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "Description": "Allows access to other AWS service resources that are required to operate clusters managed by EKS.",
+        "MaxSessionDuration": 3600,
+        "RoleLastUsed": {}
+    }
+}
+{
+    "Role": {
+        "Path": "/",
+        "RoleName": "eksFiapWorker",
+        "RoleId": "AROA3NRP2GO7BGSTSJQOL",
+        "Arn": "arn:aws:iam::785005556670:role/eksFiapWorker",
+        "CreateDate": "2020-09-27T13:50:55Z",
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "ec2.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "Description": "Allows EC2 instances to call AWS services on your behalf.",
+        "MaxSessionDuration": 3600,
+        "RoleLastUsed": {}
+    }
+}
