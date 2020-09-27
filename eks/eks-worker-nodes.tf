@@ -12,7 +12,9 @@ resource "aws_eks_node_group" "demo" {
   tags = {
     name = "eksfiap-workers"
   }
-  ec2_ssh_key = "chave-fiap"
+  remote_access {
+    ec2_ssh_key = "chave-fiap"
+  }
   scaling_config {
     desired_size = 2
     max_size     = 3
