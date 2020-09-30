@@ -1,6 +1,8 @@
 variable "instance_type" {
   # default     = "t2.micro"
   default     = "t2.medium"
+  # default     = "t2.xlarge" # 4	CPUs e 16 GB
+  # default     = "t2.2xlarge" # 8	CPUs e 32 GB  
 }
 
 variable "quantidade" {
