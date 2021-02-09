@@ -45,13 +45,13 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # Instalação da Elastic Beanstalk CLI
 #sudo apt-get -y install build-essential zlib1g-dev libssl-dev libncurses-dev libffi-dev libsqlite3-dev libreadline-dev libbz2-dev > /dev/null
-git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git
-# ./aws-elastic-beanstalk-cli-setup/scripts/bundled_installer
-python3 aws-elastic-beanstalk-cli-setup/scripts/ebcli_installer.py
-echo 'export PATH="/home/ubuntu/.ebcli-virtual-env/executables:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
-echo 'export PATH=/home/ubuntu/.pyenv/versions/3.7.2/bin:$PATH' >> /home/ubuntu/.bash_profile && source /home/ubuntu/.bash_profile
-rm -rf aws-elastic-beanstalk-cli-setup
-#pip3 install awsebcli cryptography==3.3.1 # workaround
+#git clone https://github.com/aws/aws-elastic-beanstalk-cli-setup.git
+#python3 aws-elastic-beanstalk-cli-setup/scripts/ebcli_installer.py
+#echo 'export PATH="/home/ubuntu/.ebcli-virtual-env/executables:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
+#echo 'export PATH=/home/ubuntu/.pyenv/versions/3.7.2/bin:$PATH' >> /home/ubuntu/.bash_profile && source /home/ubuntu/.bash_profile
+#rm -rf aws-elastic-beanstalk-cli-setup
+# workaround
+pip3 install awsebcli cryptography==3.3.1 
 
 # Instalação do Terraform:
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
