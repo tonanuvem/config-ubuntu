@@ -61,14 +61,15 @@ resource "aws_security_group" "default" {
 data "template_file" "init" {
   template = file("${path.module}/../preparar.sh")
 }
+/*
 data "template_file" "master" {
-  template = file("${path.module}/config-master.sh")
-}
-data "template_file" "node1" {
   template = file("${path.module}/config-node1.sh")
 }
-data "template_file" "node2" {
+data "template_file" "node1" {
   template = file("${path.module}/config-node2.sh")
+}
+data "template_file" "node2" {
+  template = file("${path.module}/config-node3.sh")
 }
 # Render a part using a `template_file`
 # Render a multi-part cloud-init config 
@@ -121,6 +122,7 @@ data "template_cloudinit_config" "config_node2" {
     content      = data.template_file.init.rendered
   }
 }
+*/
 
 resource "aws_instance" "node1" {  
   # Define o script de inicialização do EC2:
