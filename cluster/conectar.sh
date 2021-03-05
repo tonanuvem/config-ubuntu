@@ -5,4 +5,4 @@ echo ""
 echo "Copie e cole um dos IPs exibidos acimas : " 
 read IP
 echo "Conectando.. IP = $IP.."
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$IP
+ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$IP
