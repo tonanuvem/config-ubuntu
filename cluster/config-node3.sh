@@ -1,7 +1,7 @@
 #!/bin/bash
 
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
-printf "\n\n\tNODE 2: configurando hostname\n\n"
+printf "\n\n\tNODE 3: configurando hostname\n\n"
 
 echo ""
 echo "   Aguardando configurações: "
@@ -11,5 +11,5 @@ while [ $(ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@
 echo "   Conectado ao $IP, verificando ajustes: "
 ssh -i ~/environment/chave-fiap.pem ubuntu@$IP "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done"
 
-ssh -i "~/environment/chave-fiap.pem" ubuntu@$IP "sudo hostnamectl set-hostname node2"
-echo "   Configuração NODE 2 OK."
+ssh -i "~/environment/chave-fiap.pem" ubuntu@$IP "sudo hostnamectl set-hostname node3"
+echo "   Configuração NODE 3 OK."
