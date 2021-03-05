@@ -7,9 +7,9 @@ echo ""
 echo "   Aguardando configurações: "
 sleep 1
 export IP=$(terraform output Node_3_ip_externo)
-while [ $(ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$IP "echo CONECTADO" | grep CONECTADO | wc -l) != '1' ]; do { printf .; sleep 1; } done
+while [ $(ssh -q -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$IP "echo CONECTADO" | grep CONECTADO | wc -l) != '1' ]; do { printf .; sleep 1; } done
 echo "   Conectado ao $IP, verificando ajustes: "
-ssh -i ~/environment/chave-fiap.pem ubuntu@$IP "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done"
+ssh -q -i ~/environment/chave-fiap.pem ubuntu@$IP "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done"
 
-ssh -i "~/environment/chave-fiap.pem" ubuntu@$IP "sudo hostnamectl set-hostname node3"
+ssh -q -i "~/environment/chave-fiap.pem" ubuntu@$IP "sudo hostnamectl set-hostname node3"
 echo "   Configuração NODE 3 OK."
