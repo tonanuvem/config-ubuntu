@@ -4,4 +4,5 @@ echo "Iniciando configurações: "
 sh config-node1.sh
 sh config-node2.sh
 sh config-node3.sh
+echo ""
 echo " Cluster iniciado e configurado"
