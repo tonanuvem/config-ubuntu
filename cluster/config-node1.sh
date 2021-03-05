@@ -5,7 +5,7 @@ printf "\n\n\tNODE 1: configurando hostname\n\n"
 
 echo ""
 echo "   Aguardando configurações: "
-sleep 10
+sleep 1
 export IP=$(terraform output Node_2_ip_externo)
 while [ $(ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$IP "echo CONECTADO" | grep CONECTADO | wc -l) != '1' ]; do { printf .; sleep 1; } done
 echo "   Conectado ao $IP, verificando ajustes: "
