@@ -27,3 +27,7 @@ terraform apply -auto-approve
 #export AWS_DEFAULT_REGION=us-east-1
 
 aws eks --region us-east-1 update-kubeconfig --name eksfiap
+# pré-reqs : credencias da aws : ~/.aws/credentials e ~/.kube/config
+# nao funciona no Cloud9 : https://aws.amazon.com/pt/premiumsupport/knowledge-center/eks-api-server-unauthorized-error/
+# as credenciais sao inseridas no ~/.kube/config
+# mas ao acessar o cluster aparece o erro: error: You must be logged in to the server (Unauthorized)
