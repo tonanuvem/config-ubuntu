@@ -1,1 +1,2 @@
-terraform init; terraform plan; terraform apply -auto-approve
+#terraform init; terraform plan; terraform apply -auto-approve
+sh preparar.sh
