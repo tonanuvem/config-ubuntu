@@ -2,7 +2,7 @@
 # https://github.com/infrastructure-as-code/docker-aws-cli/blob/master/aws.sh
 # docker run -ti -v ~/.aws/:/root/.aws/ -v ~/.kube/:/root/.kube/ --entrypoint /bin/sh tonanuvem/kubectl-aws-cli
 
-docker run --rm \
+docker run --rm --name kubectl \
 	-e "AWS_ACCESS_KEY_ID=${aws_access_key_id}" \
 	-e "AWS_SECRET_ACCESS_KEY=${aws_secret_access_key}" \
 	-e "AWS_DEFAULT_REGION=us-east-1" \
