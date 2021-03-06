@@ -12,4 +12,4 @@ docker run -ti --rm --name kubectl -v $PWD/files/:/root/.aws --entrypoint /bin/s
 #	--entrypoint /bin/sh -d tonanuvem/kubectl-aws-cli
 
 docker exec -ti kubectl aws eks --region us-east-1 update-kubeconfig --name eksfiap
-docker exec -ti kubectl /bin/sh && mkdir ~/fiap && cd ~/fiap
+docker exec -ti kubectl /bin/sh
