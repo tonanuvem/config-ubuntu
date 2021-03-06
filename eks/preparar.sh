@@ -14,8 +14,10 @@ aws iam get-role --role-name eksFiapWorker
 
 ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
 echo $ACCOUNT
-sed -i 's|497573848553|'$ACCOUNT'|' eks-cluster.tf
-sed -i 's|497573848553|'$ACCOUNT'|' eks-worker-nodes.tf
+sed -i 's|497573848553|'$ACCOUNT'|' main.tf
+#sed -i 's|497573848553|'$ACCOUNT'|' eks-cluster.tf
+#sed -i 's|497573848553|'$ACCOUNT'|' eks-worker-nodes.tf
+
 
 terraform init
 terraform plan
