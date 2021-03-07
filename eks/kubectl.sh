@@ -10,7 +10,8 @@ CRED=$(sed '/^$/q')
 echo "$CRED" > ./files/credentials
 
 # docker run -ti --rm --name kubectl -v ~/.aws/:/root/.aws/ -v ~/.kube/:/root/.kube/ --entrypoint /bin/sh tonanuvem/kubectl-aws-cli
-
+echo ""
+echo " Conectando ..."
 docker run -ti --rm --name kubectl -v $PWD/files/:/root/.aws --entrypoint /bin/sh -d tonanuvem/kubectl-aws-cli
 
 #docker run -ti --rm --name kubectl \
