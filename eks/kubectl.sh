@@ -1,8 +1,8 @@
 # https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
 # https://github.com/infrastructure-as-code/docker-aws-cli/blob/master/aws.sh
 
-echo "Copie e cole suas credenciais da AWS, e no final digite a palavra FIM"
-cat >> ./files/credenciais << FIM
+echo "Copie e cole suas credenciais da AWS, e no final digite a palavra FIM (e aperte a tecla ENTER)"
+cat >> ./files/credentials << FIM
 
 # docker run -ti --rm --name kubectl -v ~/.aws/:/root/.aws/ -v ~/.kube/:/root/.kube/ --entrypoint /bin/sh tonanuvem/kubectl-aws-cli
 
