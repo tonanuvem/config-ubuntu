@@ -20,4 +20,7 @@ docker run -ti --rm --name kubectl -v $PWD/files/:/root/.aws --entrypoint /bin/s
 #	--entrypoint /bin/sh -d tonanuvem/kubectl-aws-cli
 
 docker exec -ti kubectl aws eks --region us-east-1 update-kubeconfig --name eksfiap
+echo ""
+echo "URL de acesso externo ao Cluster: "
+docker exec -ti kubectl aws eks --region us-east-1 describe-cluster --name eksfiap --query "cluster.endpoint"
 docker exec -ti kubectl /bin/sh
