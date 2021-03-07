@@ -3,7 +3,7 @@
 # https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
 # https://github.com/infrastructure-as-code/docker-aws-cli/blob/master/aws.sh
 
-echo "Paste certificate and end with a blank line:"
+echo "Cole suas credenciais da AWS, e digite ENTER:"
 CRED=$(sed '/^$/q')
 
 #read -d '' x <<EOF
