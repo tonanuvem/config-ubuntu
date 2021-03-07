@@ -7,7 +7,7 @@ echo "Paste certificate and end with a blank line:"
 CRED=$(sed '/^$/q')
 
 #read -d '' x <<EOF
-echo "$CRED" >> ./files/credentials
+echo "$CRED" > ./files/credentials
 
 # docker run -ti --rm --name kubectl -v ~/.aws/:/root/.aws/ -v ~/.kube/:/root/.kube/ --entrypoint /bin/sh tonanuvem/kubectl-aws-cli
 
