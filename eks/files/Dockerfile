@@ -8,6 +8,7 @@ RUN apk -v --no-cache --update add \
         mailcap \
         curl \
         git \
+        bash \
         && \
     pip --no-cache-dir install --upgrade awscli==${AWSCLI_VERSION} && \
     apk -v --purge del py-pip && \
