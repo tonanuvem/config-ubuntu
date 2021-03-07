@@ -3,7 +3,10 @@
 # https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
 # https://github.com/infrastructure-as-code/docker-aws-cli/blob/master/aws.sh
 
-read -d '' x <<EOF
+echo "Paste certificate and end with a blank line:"
+CRED=$(sed '/^$/q')
+
+#read -d '' x <<EOF
 echo "$CRED" >> ./files/credentials
 
 # docker run -ti --rm --name kubectl -v ~/.aws/:/root/.aws/ -v ~/.kube/:/root/.kube/ --entrypoint /bin/sh tonanuvem/kubectl-aws-cli
