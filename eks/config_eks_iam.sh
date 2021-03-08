@@ -5,7 +5,8 @@ CRED=$(sed '/^$/q')
 echo "$CRED" > ./files/credentials
 echo ""
 echo " Configurando ..."
-docker run -ti --rm --name awscli -v $PWD/files/:/root/.aws --entrypoint /bin/sh -d tonanuvem/kubectl-aws-cli
+docker run -ti --rm --name kubectl -v $PWD/files/:/root/.aws -v $PWD/iam/:/fiap --entrypoint /bin/sh tonanuvem/kubectl-aws-cli
+#docker run -ti --rm --name awscli -v $PWD/files/:/root/.aws --entrypoint /bin/sh -d tonanuvem/kubectl-aws-cli
 
 EXEC="docker exec -ti awscli"
 
