@@ -14,9 +14,12 @@ sudo docker run --entrypoint /runc-entry-point.sh \
     -v /opt/pwx:/opt/pwx -v /etc/pwx:/etc/pwx \
     $latest_stable
 
+# ETCD rodando no master
+MASTER=$(~/environment/ip | awk -Fv '{ if ( !($1 ~  "None") && (/vm_0/) ) { print $1} }')
+
 # RUN "px-runc install" command from the bundle to configure your installation
 sudo /opt/pwx/bin/px-runc install -c FIAP_CLUSTER \
-    -k etcd://localhost:2379 \
+    -k etcd://$MASTER:2379 \
     -s /dev/xvdb -s /dev/xvdc
 
 # Verificar status:
@@ -24,4 +27,6 @@ echo "Verificando status : "
 pxctl status
 
 #PX_POD=$(kubectl get pods -l name=portworx -n kube-system -o jsonpath='{.items[0].metadata.name}')
-#docker exec -it $PX_POD -n kube-system -- /opt/pwx/bin/pxctl status
+#docker exec -it $PX_POD -n kube-system -- 
+
+sudo /opt/pwx/bin/pxctl status
