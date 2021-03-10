@@ -43,13 +43,13 @@ ssh -o LogLevel=error -i ~/environment/chave-fiap.pem ubuntu@$NODE1 "while [ \$(
 ssh -o LogLevel=error -i "~/environment/chave-fiap.pem" ubuntu@$NODE1 "sudo hostnamectl set-hostname node1"
 ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE1 '$TOKEN'
 printf "\n\n"
-echo "   CONFIGURANDO NODE 2: KUBEADM JOIN"
+echo "   CONFIGURANDO NODE 2: JOIN"
 printf "\n\n"
 ssh -o LogLevel=error -i ~/environment/chave-fiap.pem ubuntu@$NODE2 "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done"
 ssh -o LogLevel=error -i "~/environment/chave-fiap.pem" ubuntu@$NODE2 "sudo hostnamectl set-hostname node2"
 ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE2 '$TOKEN'
 printf "\n\n"
-echo "   CONFIGURANDO NODE 3: KUBEADM JOIN"
+echo "   CONFIGURANDO NODE 3: JOIN"
 printf "\n\n"
 ssh -o LogLevel=error -i ~/environment/chave-fiap.pem ubuntu@$NODE3 "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done"
 ssh -o LogLevel=error -i "~/environment/chave-fiap.pem" ubuntu@$NODE3 "sudo hostnamectl set-hostname node3"
