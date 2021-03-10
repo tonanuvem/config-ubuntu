@@ -29,10 +29,10 @@ echo "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do 
 echo "sudo hostnamectl set-hostname master" >> master.sh
 echo "sudo docker swarm init" >> master.sh
 
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'bash -s' < master.sh
+ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'bash -s' < master.sh
 
 # Get Token
-TOKEN=$(ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker swarm join-token manager | grep docker')
+TOKEN=$(ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker swarm join-token manager | grep docker')
 # Remover espacos
 TOKEN=`echo $TOKEN | sed 's/ *$//g'`
 printf "\n\n"
@@ -61,28 +61,28 @@ echo "CONFIGURANDO OS NODES - JOIN:"
 printf "\n\n"
 echo "   CONFIGURANDO NODE 1:  JOIN"
 printf "\n\n"
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE1 'bash -s' < worker1.sh
+ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE1 'bash -s' < worker1.sh
 printf "\n\n"
 echo "   CONFIGURANDO NODE 2: JOIN"
 printf "\n\n"
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE2 'bash -s' < worker2.sh
+ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE2 'bash -s' < worker2.sh
 printf "\n\n"
 echo "   CONFIGURANDO NODE 3: JOIN"
 printf "\n\n"
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE3 'bash -s' < worker3.sh
+ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE3 'bash -s' < worker3.sh
 
 printf "\n\n"
 echo "   VERIFICANDO NODES NO MASTER :"
 printf "\n\n"
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker node ls'
+ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker node ls'
 
 ### CONFIGURANDO OS VOLUMES 
 #printf "\n\n"
 #echo "   CONFIGURANDO OS VOLUMES: PORTWORX"
 #printf "\n\n"
-#ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'bash -s' < config_volume_portworx.sh
+#ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'bash -s' < config_volume_portworx.sh
 
 printf "\n\n"
 echo "   CONFIGURAÇÕES REALIZADAS. FIM."
-#ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker node ls'
+#ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker node ls'
 printf "\n\n"
