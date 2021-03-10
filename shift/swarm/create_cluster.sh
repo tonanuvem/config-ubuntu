@@ -14,6 +14,12 @@ echo "NODE3 = $NODE3"
 
 # CONFIGURANDO O MASTER utilizando o DOCKER SWARM INIT:"
 ### CONFIGURANDO O MASTER via SSH
+printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
+printf "\n\n\tMASTER:\n"
+echo ""
+echo "   Aguardando configurações: "
+ssh -o LogLevel=error -i ~/environment/chave-fiap.pem ubuntu@$MASTER "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done"
+ssh -o LogLevel=error -i "~/environment/chave-fiap.pem" ubuntu@$MASTER "sudo hostnamectl set-hostname master"
 ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker swarm init'
 # Get Token
 TOKEN=$(ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker swarm join-token manager')
@@ -33,14 +39,20 @@ echo "CONFIGURANDO OS NODES - JOIN:"
 printf "\n\n"
 echo "   CONFIGURANDO NODE 1:  JOIN"
 printf "\n\n"
+ssh -o LogLevel=error -i ~/environment/chave-fiap.pem ubuntu@$NODE1 "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done"
+ssh -o LogLevel=error -i "~/environment/chave-fiap.pem" ubuntu@$NODE1 "sudo hostnamectl set-hostname node1"
 ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE1 '$TOKEN'
 printf "\n\n"
 echo "   CONFIGURANDO NODE 2: KUBEADM JOIN"
 printf "\n\n"
+ssh -o LogLevel=error -i ~/environment/chave-fiap.pem ubuntu@$NODE2 "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done"
+ssh -o LogLevel=error -i "~/environment/chave-fiap.pem" ubuntu@$NODE2 "sudo hostnamectl set-hostname node2"
 ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE2 '$TOKEN'
 printf "\n\n"
 echo "   CONFIGURANDO NODE 3: KUBEADM JOIN"
 printf "\n\n"
+ssh -o LogLevel=error -i ~/environment/chave-fiap.pem ubuntu@$NODE3 "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done"
+ssh -o LogLevel=error -i "~/environment/chave-fiap.pem" ubuntu@$NODE3 "sudo hostnamectl set-hostname node3"
 ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE3 '$TOKEN'
 printf "\n\n"
 echo "   VERIFICANDO NODES NO MASTER :"
