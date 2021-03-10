@@ -27,7 +27,7 @@ echo "   Aguardando configurações: "
 
 echo "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done" >> master.sh
 echo "sudo hostnamectl set-hostname master" >> master.sh
-echo "docker swarm init" >> master.sh
+echo "sudo docker swarm init" >> master.sh
 
 ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'bash -s' < master.sh
 
