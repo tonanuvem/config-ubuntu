@@ -24,9 +24,7 @@ sudo /opt/pwx/bin/px-runc install -c FIAP_CLUSTER \
 
 # Verificar status:
 echo "Verificando status : "
-pxctl status
+sudo pxctl status
 
 #PX_POD=$(kubectl get pods -l name=portworx -n kube-system -o jsonpath='{.items[0].metadata.name}')
-#docker exec -it $PX_POD -n kube-system -- 
-
-sudo /opt/pwx/bin/pxctl status
+#docker exec -it $PX_POD -n kube-system -- /opt/pwx/bin/pxctl status
