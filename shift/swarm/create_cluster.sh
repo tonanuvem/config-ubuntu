@@ -78,9 +78,16 @@ ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem
 
 ### CONFIGURANDO OS VOLUMES 
 #printf "\n\n"
+#echo "   CONFIGURANDO ETCD no MASTER:"
+#printf "\n\n"
+#ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'bash -s' < config_etcd.sh
+#printf "\n\n"
 #echo "   CONFIGURANDO OS VOLUMES: PORTWORX"
 #printf "\n\n"
 #ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'bash -s' < config_volume_portworx.sh
+#ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE1 'bash -s' < config_volume_portworx.sh
+#ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE2 'bash -s' < config_volume_portworx.sh
+#ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE3 'bash -s' < config_volume_portworx.sh
 
 printf "\n\n"
 echo "   CONFIGURAÇÕES REALIZADAS. FIM."
