@@ -7,7 +7,7 @@ echo ""
 
 echo "Em qual NODE você deseja conectar? Digitar: 1 ou 2 ou 3" 
 read NODENUM
-IP=$(~/environment/ip | awk -Fv '{ if ( !($1 ~  "None") && (/vm_${NODENUM}/) ) { print $1} }')
+IP=$(~/environment/ip | awk -Fv '{ if ( !($1 ~  "None") && (/vm_'$NODENUM'/) ) { print $1} }')
 
 echo "Conectando.. IP = $IP.."
 ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$IP
