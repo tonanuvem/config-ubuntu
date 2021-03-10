@@ -7,8 +7,7 @@ echo ""
 
 echo "Em qual NODE você deseja conectar? Digitar: 1 ou 2 ou 3" 
 read NODENUM
-NODE="Node_${NODENUM}_ip_externo"
-export IP=$(terraform output $NODE)
+IP=$(~/environment/ip | awk -Fv '{ if ( !($1 ~  "None") && (/vm_${NODENUM}/) ) { print $1} }')
 
 echo "Conectando.. IP = $IP.."
 ssh -o LogLevel=error -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$IP
