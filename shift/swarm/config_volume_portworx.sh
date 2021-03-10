@@ -18,9 +18,9 @@ sudo docker run --entrypoint /runc-entry-point.sh \
 MASTER=$(~/environment/ip | awk -Fv '{ if ( !($1 ~  "None") && (/vm_0/) ) { print $1} }')
 
 # RUN "px-runc install" command from the bundle to configure your installation
-sudo /opt/pwx/bin/px-runc install -c FIAP_CLUSTER \
+sudo /opt/pwx/bin/px-runc install -c FIAP \
     -k etcd://$MASTER:2379 \
-    -s /dev/xvdb -s /dev/xvdc
+    -s /dev/xvda1
 
 # Verificar status:
 echo "Verificando status : "
