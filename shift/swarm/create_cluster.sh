@@ -12,15 +12,25 @@ echo "NODE1 = $NODE1"
 echo "NODE2 = $NODE2"
 echo "NODE3 = $NODE3"
 
+# reset arquivos vazios dos scripts:
+> master.sh
+> worker1.sh
+> worker2.sh
+> worker3.sh
+
 # CONFIGURANDO O MASTER utilizando o DOCKER SWARM INIT:"
 ### CONFIGURANDO O MASTER via SSH
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tMASTER:\n"
 echo ""
 echo "   Aguardando configurações: "
-ssh -o LogLevel=error -i ~/environment/chave-fiap.pem ubuntu@$MASTER "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done"
-ssh -o LogLevel=error -i "~/environment/chave-fiap.pem" ubuntu@$MASTER "sudo hostnamectl set-hostname master"
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker swarm init'
+
+echo "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done" >> master.sh
+echo "sudo hostnamectl set-hostname master" >> master.sh
+echo "docker swarm init" >> master.sh
+
+ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'bash -s' < master.sh
+
 # Get Token
 TOKEN=$(ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker swarm join-token manager | grep docker')
 printf "\n\n"
@@ -31,6 +41,16 @@ printf "\n\n"
 
 ### CONFIGURANDO OS NODES utilizando o DOCKER SWARM JOIN:
 
+echo "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done" >> worker1.sh
+echo "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done" >> worker2.sh
+echo "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done" >> worker3.sh
+echo "sudo hostnamectl set-hostname node1" >> worker1.sh
+echo "sudo hostnamectl set-hostname node2" >> worker2.sh
+echo "sudo hostnamectl set-hostname node3" >> worker3.sh
+echo "sudo $TOKEN" >> worker1.sh
+echo "sudo $TOKEN" >> worker2.sh
+echo "sudo $TOKEN" >> worker3.sh
+
 # Exemplo:
 # docker swarm join --token SWMTKN-1-28amdt0x5r4mbc5092t1w016392emlqv67lyhasph200d6tdhl-41rxupxdsjg9zo00xtdlwon5p 10.1.1.97:2377
 printf "\n\n"
@@ -39,21 +59,16 @@ echo "CONFIGURANDO OS NODES - JOIN:"
 printf "\n\n"
 echo "   CONFIGURANDO NODE 1:  JOIN"
 printf "\n\n"
-ssh -o LogLevel=error -i ~/environment/chave-fiap.pem ubuntu@$NODE1 "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done"
-ssh -o LogLevel=error -i "~/environment/chave-fiap.pem" ubuntu@$NODE1 "sudo hostnamectl set-hostname node1"
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE1 '$TOKEN'
+ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE1 'bash -s' < worker1.sh
 printf "\n\n"
 echo "   CONFIGURANDO NODE 2: JOIN"
 printf "\n\n"
-ssh -o LogLevel=error -i ~/environment/chave-fiap.pem ubuntu@$NODE2 "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done"
-ssh -o LogLevel=error -i "~/environment/chave-fiap.pem" ubuntu@$NODE2 "sudo hostnamectl set-hostname node2"
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE2 '$TOKEN'
+ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE1 'bash -s' < worker2.sh
 printf "\n\n"
 echo "   CONFIGURANDO NODE 3: JOIN"
 printf "\n\n"
-ssh -o LogLevel=error -i ~/environment/chave-fiap.pem ubuntu@$NODE3 "while [ \$(ls /usr/local/bin/ | grep docker-compose | wc -l) != '1' ]; do { printf .; sleep 1; } done"
-ssh -o LogLevel=error -i "~/environment/chave-fiap.pem" ubuntu@$NODE3 "sudo hostnamectl set-hostname node3"
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE3 '$TOKEN'
+ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE1 'bash -s' < worker3.sh
+
 printf "\n\n"
 echo "   VERIFICANDO NODES NO MASTER :"
 printf "\n\n"
@@ -67,5 +82,5 @@ ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'd
 
 printf "\n\n"
 echo "   CONFIGURAÇÕES REALIZADAS. FIM."
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker node ls'
+#ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker node ls'
 printf "\n\n"
