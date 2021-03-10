@@ -22,7 +22,7 @@ ssh -o LogLevel=error -i ~/environment/chave-fiap.pem ubuntu@$MASTER "while [ \$
 ssh -o LogLevel=error -i "~/environment/chave-fiap.pem" ubuntu@$MASTER "sudo hostnamectl set-hostname master"
 ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker swarm init'
 # Get Token
-TOKEN=$(ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker swarm join-token manager')
+TOKEN=$(ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker swarm join-token manager | grep docker')
 printf "\n\n"
 echo $TOKEN
 printf "\n\n"
