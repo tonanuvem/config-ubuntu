@@ -63,11 +63,11 @@ ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE1 'ba
 printf "\n\n"
 echo "   CONFIGURANDO NODE 2: JOIN"
 printf "\n\n"
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE1 'bash -s' < worker2.sh
+ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE2 'bash -s' < worker2.sh
 printf "\n\n"
 echo "   CONFIGURANDO NODE 3: JOIN"
 printf "\n\n"
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE1 'bash -s' < worker3.sh
+ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE3 'bash -s' < worker3.sh
 
 printf "\n\n"
 echo "   VERIFICANDO NODES NO MASTER :"
