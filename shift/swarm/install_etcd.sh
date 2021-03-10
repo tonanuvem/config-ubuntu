@@ -20,5 +20,5 @@ docker run -d -v /usr/share/ca-certificates/:/etc/ssl/certs -p 4001:4001 -p 2380
 
 # Configure etcd clients to use the Docker host IP and one of the listening ports from above.
 
-etcdctl -C http://${HostIP}:2379 member list
-etcdctl -C http://${HostIP}:4001 member list
+#etcdctl -C http://${HostIP}:2379 member list
+#etcdctl -C http://${HostIP}:4001 member list
