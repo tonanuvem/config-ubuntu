@@ -22,6 +22,11 @@ sudo /opt/pwx/bin/px-runc install -c FIAP \
     -k etcd://$MASTER:2379 \
     -s /dev/xvda1
 
+# Iniciar
+sudo systemctl daemon-reload
+sudo systemctl enable portworx
+sudo systemctl start portworx
+
 # Verificar status:
 echo "Verificando status : "
 sudo pxctl status
