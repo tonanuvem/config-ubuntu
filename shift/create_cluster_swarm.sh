@@ -56,7 +56,7 @@ ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE3 'ba
 printf "\n\n"
 echo "   VERIFICANDO NODES NO MASTER :"
 printf "\n\n"
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker nodes ls'
+ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker node ls'
 
 ### CONFIGURANDO OS VOLUMES 
 printf "\n\n"
@@ -66,5 +66,5 @@ printf "\n\n"
 
 printf "\n\n"
 echo "   CONFIGURAÇÕES REALIZADAS. FIM."
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker nodes ls'
+ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker node ls'
 printf "\n\n"
