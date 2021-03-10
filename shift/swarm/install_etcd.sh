@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# https://etcd.io/docs/v2/docker_guide/
+
+# etcd instalado diretamente no master
 ETCD_VERSION=${ETCD_VERSION:-v3.3.1}
 
 curl -L https://github.com/coreos/etcd/releases/download/$ETCD_VERSION/etcd-$ETCD_VERSION-linux-amd64.tar.gz -o etcd-$ETCD_VERSION-linux-amd64.tar.gz
