@@ -32,7 +32,7 @@ echo "sudo docker swarm init" >> master.sh
 ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'bash -s' < master.sh
 
 # Get Token
-TOKEN=$(ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker swarm join-token manager | grep docker | tr -d '[:space:]'')
+TOKEN=$(ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker swarm join-token manager | grep docker | sed 's/ *$//g' ')
 printf "\n\n"
 echo $TOKEN
 printf "\n\n"
