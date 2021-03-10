@@ -12,12 +12,6 @@ echo "NODE1 = $NODE1"
 echo "NODE2 = $NODE2"
 echo "NODE3 = $NODE3"
 
-# reset arquivos vazios dos scripts:
-> master.sh
-> worker1.sh
-> worker2.sh
-> worker3.sh
-
 # CONFIGURANDO O MASTER utilizando o DOCKER SWARM INIT:"
 ### CONFIGURANDO O MASTER via SSH
 ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$MASTER 'docker swarm init'
@@ -35,24 +29,19 @@ printf "\n\n"
 # docker swarm join --token SWMTKN-1-28amdt0x5r4mbc5092t1w016392emlqv67lyhasph200d6tdhl-41rxupxdsjg9zo00xtdlwon5p 10.1.1.97:2377
 printf "\n\n"
 echo "CONFIGURANDO OS NODES - JOIN:"
-echo "sudo $TOKEN" >> worker1.sh
-echo "sudo $TOKEN" >> worker2.sh
-echo "sudo $TOKEN" >> worker3.sh
 
-# validar
-#cat worker1.sh
 printf "\n\n"
 echo "   CONFIGURANDO NODE 1:  JOIN"
 printf "\n\n"
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE1 'bash -s' < worker1.sh
+ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE1 '$TOKEN'
 printf "\n\n"
 echo "   CONFIGURANDO NODE 2: KUBEADM JOIN"
 printf "\n\n"
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE2 'bash -s' < worker2.sh
+ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE2 '$TOKEN'
 printf "\n\n"
 echo "   CONFIGURANDO NODE 3: KUBEADM JOIN"
 printf "\n\n"
-ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE3 'bash -s' < worker3.sh
+ssh -oStrictHostKeyChecking=no -i ~/environment/chave-fiap.pem ubuntu@$NODE3 '$TOKEN'
 printf "\n\n"
 echo "   VERIFICANDO NODES NO MASTER :"
 printf "\n\n"
