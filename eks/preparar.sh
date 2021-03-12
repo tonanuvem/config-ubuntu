@@ -26,7 +26,7 @@ terraform apply -auto-approve
 #export AWS_SECRET_ACCESS_KEY=
 #export AWS_DEFAULT_REGION=us-east-1
 
-aws eks --region us-east-1 update-kubeconfig --name eksfiap
+#aws eks --region us-east-1 update-kubeconfig --name eksfiap
 # pré-reqs : credencias da aws : ~/.aws/credentials e ~/.kube/config
 # nao funciona no Cloud9 : https://aws.amazon.com/pt/premiumsupport/knowledge-center/eks-api-server-unauthorized-error/
 # as credenciais sao inseridas no ~/.kube/config
