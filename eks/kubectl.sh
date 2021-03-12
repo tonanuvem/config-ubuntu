@@ -4,7 +4,7 @@
 # https://github.com/infrastructure-as-code/docker-aws-cli/blob/master/aws.sh
 
 # Verifica se o arquivo com as credenciais da AWS existe e está preenchido
-if [[ -f "./files/credentials" && -s "./files/credentials ]]; then 
+if [[ -f "./files/credentials" && -s "./files/credentials" ]]; then 
     echo "Arquivo com credenciais encontrado"
 else 
     echo "Credenciais nao encontrada"; 
