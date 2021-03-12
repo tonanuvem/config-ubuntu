@@ -1,8 +1,4 @@
-echo "Cole suas credenciais da AWS, e digite ENTER (2 vezes):"
-CRED=$(sed '/^$/q')
-
-#read -d '' x <<EOF
-echo "$CRED" > ./files/credentials
+sh config_credenciais.sh
 echo ""
 echo " Configurando ..."
 docker run -ti --rm --name awscli -v $PWD/files/:/root/.aws -v $PWD/iam/:/fiap --entrypoint /bin/sh -d tonanuvem/kubectl-aws-cli
