@@ -25,5 +25,5 @@ docker exec -ti awscli aws iam attach-role-policy --policy-arn arn:aws:iam::aws:
 docker exec -ti awscli aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy --role-name eksFiapWorker
 docker exec -ti awscli aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly --role-name eksFiapWorker
 
-docker exec -ti awscli /bin/sh 
-#docker exec -ti awscli exit
+#docker exec -ti awscli /bin/sh 
+docker exec -ti awscli exit
