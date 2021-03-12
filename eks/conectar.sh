@@ -1,1 +1,1 @@
-sh kubectl.sh
+bash kubectl.sh
