@@ -13,8 +13,6 @@ EOL
 > ~/environment/ip
 sudo cat >> ~/environment/ip <<EOL
 aws ec2 describe-instances --query "Reservations[*].Instances[*].[PublicIpAddress, Tags[?Key=='Name'].Value|[0]]" --output text | grep -v None
-#aws ec2 describe-instances --query "Reservations[*].Instances[*].[PublicIpAddress, Tags[?Key=='Name'].Value|[0]]" --output text
-#aws ec2 describe-instances --query "Reservations[*].Instances[*].[PublicIpAddress, Tags[?Key=='Name'].Value|[0]]" --output text | awk -Fv '{ if ( !(\$1 ~  "None") ) { print } }'
 EOL
 chmod +x ~/environment/ip
 
