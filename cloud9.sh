@@ -56,6 +56,7 @@ pip3 install awsebcli cryptography==3.3.1
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tTerraform:\n\n"
 curl -s "https://releases.hashicorp.com/terraform/0.12.29/terraform_0.12.29_linux_amd64.zip" -o "terraform_linux_amd64.zip"
+# curl -s "https://releases.hashicorp.com/terraform/1.0.3/terraform_1.0.3_linux_amd64.zip" -o "terraform_linux_amd64.zip"
 unzip terraform_linux_amd64.zip
 sudo mv terraform /usr/bin/
 rm -rf terraform_linux_amd64.zip
