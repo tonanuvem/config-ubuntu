@@ -137,9 +137,10 @@ printf "\n\n\tJava:\n\n"
 #sudo apt-get -y install maven > /dev/null
 #sudo update-alternatives --config java
 #sudo update-alternatives --config javac
-sudo yum install -y default-jre default-jdk maven
-sudo update-alternatives --config java
-sudo update-alternatives --config javac
+sudo amazon-linux-extras install java-openjdk11 -y
+sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+sudo yum install -y apache-maven
 
 # adiciona as variaveis do java em /etc/environment
 sudo cat >> /etc/environment <<EOL
