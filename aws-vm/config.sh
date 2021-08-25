@@ -22,20 +22,20 @@ ln -s /var/lib/cloud/instances/ ~/.scripts_init/
 
 
 # --- UTILS
-printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
-printf "\n\n\tCCAT:\n\n"
-wget https://github.com/jingweno/ccat/releases/download/v1.1.0/linux-amd64-1.1.0.tar.gz
-tar -zxvf linux-amd64-1.1.0.tar.gz 
-chmod +x linux-amd64-1.1.0/ccat
-sudo mv linux-amd64-1.1.0/ccat /usr/local/bin/ccat
-sudo echo "alias cat='/usr/local/bin/ccat --bg=dark'" >> /etc/profile
-printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
-printf "\n\n\tUNZIP:\n\n"
+#printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
+#printf "\n\n\tCCAT:\n\n"
+#wget https://github.com/jingweno/ccat/releases/download/v1.1.0/linux-amd64-1.1.0.tar.gz
+#tar -zxvf linux-amd64-1.1.0.tar.gz 
+#chmod +x linux-amd64-1.1.0/ccat
+#sudo mv linux-amd64-1.1.0/ccat /usr/local/bin/ccat
+#sudo echo "alias cat='/usr/local/bin/ccat --bg=dark'" >> /etc/profile
+#printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
+#printf "\n\n\tUNZIP:\n\n"
 #export DEBIAN_FRONTEND=noninteractive
 #sudo apt-get update > /dev/null
 #sudo apt-get install unzip
-sudo yum update -y > /dev/null
-sudo yum install unzip
+#sudo yum update -y > /dev/null
+#sudo yum install unzip
 
 
 # --- OPS TOOLS
@@ -47,13 +47,13 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 # Instalação da AWS CLI
-printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
-printf "\n\n\tAWS CLI e SSH:\n\n"
-curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip -q awscliv2.zip
-sudo ./aws/install
+#printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
+#printf "\n\n\tAWS CLI e SSH:\n\n"
+#curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+#unzip -q awscliv2.zip
+#sudo ./aws/install
 #sudo apt-get -y install jq > /dev/null
-sudo yum install jq -y > /dev/null
+#sudo yum install jq -y > /dev/null
 
 # Criar arquivo vazio das credenciais da AWS:
 mkdir ~/.aws
@@ -61,14 +61,14 @@ touch ~/.aws/credentials
 
 # Habilitar a configuração para o servidor não derrubar suas conexões:
 echo 'ClientAliveInterval 60' | sudo tee --append /etc/ssh/sshd_config
-sudo service ssh restart
+sudo service sshd restart
 
 # Instalação do Terraform:
-printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
-printf "\n\n\tTerraform:\n\n"
-curl -s "https://releases.hashicorp.com/terraform/0.12.29/terraform_0.12.29_linux_amd64.zip" -o "terraform_linux_amd64.zip"
-unzip terraform_linux_amd64.zip
-sudo mv terraform /usr/bin/
+#printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
+#printf "\n\n\tTerraform:\n\n"
+#curl -s "https://releases.hashicorp.com/terraform/0.12.29/terraform_0.12.29_linux_amd64.zip" -o "terraform_linux_amd64.zip"
+#unzip terraform_linux_amd64.zip
+#sudo mv terraform /usr/bin/
 #cd ~/terraform/
 #DIR_TERRAFORM=$(pwd)
 #sudo echo "export PATH=$PATH:$DIR_TERRAFORM" >> /etc/profile
@@ -83,9 +83,11 @@ curl -s -Lo minikube https://storage.googleapis.com/minikube/releases/latest/min
 chmod +x minikube 
 sudo mv minikube /usr/local/bin/
 # Variavel abaixo evita que precise executar "sudo chown -R $USER $HOME/.kube $HOME/.minikube" pelo usuario ubuntu
-sudo cat >> /etc/environment <<EOL
-export CHANGE_MINIKUBE_NONE_USER=true
-EOL
+# AJUSTAR config minikube??
+#sudo cat >> /etc/environment <<EOL
+#export CHANGE_MINIKUBE_NONE_USER=true
+#EOL
+
 # kubectl
 #curl -s -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 #chmod +x ./kubectl
@@ -111,7 +113,7 @@ EOF
 sudo setenforce 0
 sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
-sudo systemctl enable --now kubelet
+#sudo systemctl enable --now kubelet
 
 # kubectl bash completion : todo
 # apt-get install bash-completion
