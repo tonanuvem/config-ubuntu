@@ -191,9 +191,9 @@ java -version
 javac -version
 printf "\n\tMAVEN:\n"
 mvn -version
-printf "\n\tCHROME e CHROMEDRIVER:\n"
-google-chrome --version
-chromedriver --version
+#printf "\n\tCHROME e CHROMEDRIVER:\n"
+#google-chrome --version
+#chromedriver --version
 printf "\n\tPYTHON:\n"
 python3 --version
 printf "\n\tPIP:\n"
