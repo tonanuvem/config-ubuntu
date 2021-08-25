@@ -16,9 +16,9 @@ sudo cat >> ~/ip <<EOL
 curl checkip.amazonaws.com
 EOL
 chmod +x ~/ip
-ln -s /var/log/cloud-init-output.log /home/ubuntu/init.log
-mkdir /home/ubuntu/.scripts_init/
-ln -s /var/lib/cloud/instances/ /home/ubuntu/.scripts_init/
+ln -s /var/log/cloud-init-output.log ~/init.log
+mkdir ~/.scripts_init/
+ln -s /var/lib/cloud/instances/ ~/.scripts_init/
 
 
 # --- UTILS
