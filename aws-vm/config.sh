@@ -3,18 +3,19 @@
 # Instalação do Docker
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tDocker:\n\n"
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
+#sudo yum update -y
+sudo yum -y install docker
 # sudo gpasswd -a $USER docker
-sudo gpasswd -a ubuntu docker
+sudo gpasswd -a ec2-user docker
+sudo service docker start
 
 # Diretorio escolhido para salvar os pacotes baixados
 cd /usr/local/src/
 # utils: cria script para verificar ip publico.
-sudo cat >> /home/ubuntu/ip <<EOL
+sudo cat >> ~/ip <<EOL
 curl checkip.amazonaws.com
 EOL
-chmod +x /home/ubuntu/ip
+chmod +x ~/ip
 ln -s /var/log/cloud-init-output.log /home/ubuntu/init.log
 mkdir /home/ubuntu/.scripts_init/
 ln -s /var/lib/cloud/instances/ /home/ubuntu/.scripts_init/
