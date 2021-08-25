@@ -7,7 +7,8 @@ variable "instance_type" {
 
 variable "quantidade" {
   type        = number
-  default     = "4"
+  default     = "1"
+  #default     = "4"
 }
 
 variable "tamanho_disco" {
