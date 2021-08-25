@@ -1,5 +1,15 @@
 #!/bin/bash
 
+#!/bin/bash
+
+echo "Aguardando Cloud9 (geralmente 4 min): daily update."
+while [ "$(ps aux | grep -i yum | wc -l)" != "1" ]; do
+  printf "."
+  sleep 1
+done
+echo "Instalando pacotes."
+uptime
+
 # Instalação do Docker
 printf "\n\n xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \n"
 printf "\n\n\tDocker:\n\n"
